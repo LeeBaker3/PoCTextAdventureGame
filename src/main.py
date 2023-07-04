@@ -15,8 +15,8 @@ player = Player(playerName=playerName)
 
 
 locations = {}
-loadlocations = LoadLocations(locations)
-loadlocations.load()
+loadLocations = LoadLocations(locations, "locations.xml")
+loadLocations.load()
 
 print('Hello {0}'.format(player.name()))
 
