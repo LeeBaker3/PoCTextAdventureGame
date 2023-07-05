@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locations>
+   <location>
+    <location_id>1</location_id>
+    <location_name>Eve’s Bedroom</location_name>
+    <location_description>You are in your bedroom. You can see your cot and changing table. You can also see the living room through the bedroom door.</location_description>
+    <items>
+      <item_id>1</item_id>
+    </items>
+    <moves>
+      <move>
+        <move_description>Bedroom door</move_description>
+        <destination_location_id>2</destination_location_id>
+      </move>
+    </moves>
+  </location>
+  <location>
+    <location_id>2</location_id>
+    <location_name>Living Room</location_name>
+    <location_description>You are in your living room. You can see your dinning table, sofas and mum. You can also see the bedroom through the bedroom door.</location_description>
+    <items>
+      <item_id></item_id>
+    </items>
+    <moves>
+      <move>
+        <move_description>Bedroom door</move_description>
+        <destination_location_id>1</destination_location_id>
+      </move>
+    </moves>
+  </location>
+</locations>
