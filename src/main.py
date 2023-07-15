@@ -4,6 +4,7 @@ from player import Player
 from location import Location
 from location import LoadLocations
 
+
 welcome = 'Welcome to your greatest adventure'
 introduction = 'We are going on an adventure. But first, make sure your parents know {0}! Remember, never go on adventures with strangers'
 
