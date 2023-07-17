@@ -52,9 +52,9 @@ def itemsMessage(currentLocation, items):
     if itemsLen == 0:
         itemsMessage = 'There are no items here '
     elif itemsLen == 1:
-        itemsMessage = 'There is {0} item here.' + itemList
+        itemsMessage = 'There is {0} item here. ' + itemList
     else:
-        itemsMessage = 'There are {0} items here.' + itemList
+        itemsMessage = 'There are {0} items here. ' + itemList
     print(itemsMessage.format(itemsLen))
 
 

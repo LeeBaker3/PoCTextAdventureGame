@@ -24,11 +24,9 @@ class LoadItems:
         """
 
         self.tree = ET.parse(self.filePath)
-
         self.root = self.tree.getroot()
 
         self.itemLen = len(self.root.findall("item"))
-        print("There are {0} items".format(self.itemLen))
 
         for self.child in self.root:
             self.item_id = self.child.get('item_id')
