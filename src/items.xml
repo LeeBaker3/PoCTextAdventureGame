@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <items>
-  <item id="1">
+  <item item_id="1">
     <item_name>Push Chair</item_name>
-    <item_description/>
+    <item_description>This is your ride</item_description>
   </item>
 </items>
