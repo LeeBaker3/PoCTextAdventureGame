@@ -16,7 +16,7 @@ loadItems.load()
 
 
 welcome = 'Welcome to your greatest adventure'
-introduction = 'We are going on an adventure. But first, make sure your parents know {0}! Remember, never go on adventures with strangers'
+introduction = 'We are going on an adventure. But first, make sure your parents know {0}! Remember, never go on adventures with strangers\n'
 
 print(welcome)
 playerName = input("What is your name adventurer?")
