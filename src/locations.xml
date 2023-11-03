@@ -7,7 +7,7 @@
       <item item_id="1"></item>
     </items>
     <moves>
-      <move destination_location_id="2">Bedroom door</move>
+      <move destination_location_id="2">Go through the dedroom door</move>
     </moves>
   </location>
   <location location_id="2">
@@ -16,7 +16,8 @@
     <items>
     </items>
     <moves>
-      <move destination_location_id="1">Bedroom door</move>
+      <move destination_location_id="1" >Go through your bedroom door into your bedromm</move>
+      <move destimation_location_id="3" >Go through bathroom door into the bathroom</move>
     </moves>
   </location>
 </locations>
