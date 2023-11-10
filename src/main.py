@@ -39,6 +39,15 @@ print(introduction.format(player.name()))
 
 
 def movesMessage(currentLocation):
+	'''Summary or Description of the Function
+	This function take the currentLocation object and generates a message desribing
+	the number of available moves in the current location and what those moves are.
+
+    Parameters:
+    currentLocation (obj): instance of the location.py object that is current in-scope
+
+   '''
+	
 	moveslen = currentLocation.movesLength()
 	
 	currentLocation.possibleMoves.items()
