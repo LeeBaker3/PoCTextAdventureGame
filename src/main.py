@@ -15,11 +15,11 @@ import openai
 # print("Current working directory:", cwd)
 
 
-locations = {}
+locations = {}  # locations (Dictonary): Holds the game location objects
 loadLocations = LoadLocations(locations, "locations.xml")
 loadLocations.load()
 
-items = {}
+items = {}  # items (Dictonary): Holds the game item objects
 loadItems = LoadItems(items, "items.xml")
 loadItems.load()
 
@@ -28,7 +28,8 @@ end = '\033[0;0m'  # Normal text
 
 
 welcome = 'Welcome to your greatest adventure'
-introduction = 'We are going on an adventure. But first, make sure your parents know {0}! Remember, never go on adventures with strangers\n'
+introduction = 'We are going on an adventure. But first, make sure your '\
+    'parents know {0}! Remember, never go on adventures with strangers\n'
 
 print(welcome)
 playerName = input('{}{}{}'.format(
@@ -40,34 +41,52 @@ print(introduction.format(player.name()))
 
 
 def movesMessage(currentLocation):
-	'''Summary or Description of the Function
-	This function take the currentLocation object and generates a message desribing
-	the number of available moves in the current location and what those moves are.
+    '''Summary or Description of the Function
+    This function take the currentLocation object and generates a message
+    desribing the number of available moves in the current location and
+    what those moves are.
 
     Parameters:
-    currentLocation (obj): instance of the location.py object that is current in-scope
-
+    currentLocation (obj): instance of the location.py object that is
+    current in-scope location
    '''
-	
-	moveslen = currentLocation.movesLength()
-	
-	currentLocation.possibleMoves.items()
-	moveList = ''
-	
-	for key, value in currentLocation.possibleMoves.items():
-		moveList = moveList + ' ' + value
-		
-		
-	print (moveList)
-	
-	if moveslen > 1:
-		moveMessage = 'There are {0} possible moves' + moveList
-	else:
-		moveMessage = 'There is {0} possible move' + moveList
-	print(moveMessage.format(moveslen))
-	
-	
+
+    # movesLen (Integer): The number of possible moves at the current location
+    movesLen = currentLocation.movesLength()
+    
+    # moveList (string): An empty string that will hold the possible move
+    # descriptions
+    moveList = ''
+
+    # Populate the empty moveList (string) with move descriptions from the
+    # currentLocation location (object).
+    for key, value in currentLocation.possibleMoves.items():
+        moveList = moveList + ' ' + value
+
+    # Prints movelist for development purposes. Needs to be removed.
+    print(moveList)
+
+    # Build the moveMessage that is output to the the player. The if/else
+    # statement determines if there is 1 or more moves from the
+    # movesLen (integer) and builds the message for a either a single, or
+    # multiple moves.
+    if movesLen > 1:
+        moveMessage = 'There are {0} possible moves' + moveList
+    else:
+        moveMessage = 'There is {0} possible move' + moveList
+    print(moveMessage.format(movesLen))
+
+
 def itemsMessage(currentLocation, items):
+    '''Summary or Description of the Function
+    This function take the currentLocation object and generates a message
+    desribing the number of available items in the current location and what
+    those items are.
+
+    Parameters:
+    currentLocation (obj): instance of the location.py object that is current
+    in-scope location
+   '''
 
     itemsLen = currentLocation.itemsLength()
 
@@ -93,12 +112,16 @@ def itemsMessage(currentLocation, items):
 # Define your OpenAI API key
 api_key = config.openai['api_key']
 
-# Function to interact with ChatGPT and determine the move
-
 
 def determineUserInput(possibleActions, playerInput):
-    # Create a prompt that includes the possible moves and user input
-    # Create a system message and a user message with possible moves and user input
+    '''Function to interact with ChatGPT and determine the move
+
+    Parameters:
+    possibleActions (array): A list of the current possible actions/moves
+    playerInput (string): Text string input by the player requesting what
+    action/move the player wants to execute.
+
+   '''
     messages = [
         {"role": "system", "content": "From the user input, determine what the user requested from the possible actions available."},
         {"role": "user",
@@ -109,7 +132,7 @@ def determineUserInput(possibleActions, playerInput):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Use ChatGPT-3.5
         messages=messages,
-        max_tokens=10,  # Set to 1 to get a single word response
+        max_tokens=10,  # Set to 10. This should be enough to determine the action chosen
         api_key=api_key
     )
 
@@ -132,3 +155,4 @@ possibleMoves = currentLocation.possibleMoves.values()
 print(possibleMoves)
 userAction = determineUserInput(possibleMoves, playerInput)
 print("You choose to: {}".format(userAction))
+
