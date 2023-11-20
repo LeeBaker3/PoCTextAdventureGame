@@ -53,7 +53,7 @@ def movesMessage(currentLocation):
 
     # movesLen (Integer): The number of possible moves at the current location
     movesLen = currentLocation.movesLength()
-    
+
     # moveList (string): An empty string that will hold the possible move
     # descriptions
     moveList = ''
@@ -123,7 +123,7 @@ def determineUserInput(possibleActions, playerInput):
 
    '''
     messages = [
-        {"role": "system", "content": "From the user input, determine what the user requested from the possible actions available."},
+        {"role": "system", "content": "From the user input, determine what the user requested from the possible actions available. Only return the text of the matching possible action. Otherwise return no match"},
         {"role": "user",
             "content": f"Possible actions: {', '.join(possibleActions)}. User input: {playerInput}"}
     ]
@@ -132,7 +132,7 @@ def determineUserInput(possibleActions, playerInput):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Use ChatGPT-3.5
         messages=messages,
-        max_tokens=10,  # Set to 10. This should be enough to determine the action chosen
+        max_tokens=20,  # Set to 20. This should be enough to determine the action chosen
         api_key=api_key
     )
 
@@ -141,18 +141,47 @@ def determineUserInput(possibleActions, playerInput):
     return action
 
 
+def searchPossibleMoves(userAction, possibleMoves):
+    result = [key for key, value in possibleMoves.items() if value ==
+              userAction]
+    # print("Result: {} Type: {} and Length: {}".format(
+    #    str(result), type(result), len(result)))
+    if result:
+        return result[0]
+    return None
+
+
 currentLocation = locations['1']
-health = 100
+health = 2
 
-# while health>0:
+while health > 0:
 
-print(currentLocation.location_description)
-movesMessage(currentLocation)
-itemsMessage(currentLocation, items)
+    print(currentLocation.location_description)
+    movesMessage(currentLocation)
+    itemsMessage(currentLocation, items)
 
-playerInput = input(start + "What would you like to do? :" + end)
-possibleMoves = currentLocation.possibleMoves.values()
-print(possibleMoves)
-userAction = determineUserInput(possibleMoves, playerInput)
-print("You choose to: {}".format(userAction))
+    playerInput = input(start + "What would you like to do? :" + end)
+    if playerInput.lower() != "exit":
+        possibleMoves = currentLocation.possibleMoves.values()
 
+        userAction = determineUserInput(possibleMoves, playerInput)
+
+        print("You choose to: {}".format(userAction))
+        print("Possible moves type: {}".format(currentLocation.possibleMoves))
+
+        newLocationKey = searchPossibleMoves(
+            userAction, currentLocation.possibleMoves)
+
+        if newLocationKey != None:
+
+            print("key Value : {}".format(newLocationKey))
+            currentLocation = locations[newLocationKey[0]]
+        else:
+            print("That doesn't match any of the possible actions")
+
+        health = health - 1
+    else:
+        health = 0
+        print("you chose to exit the game")
+
+    print("health: {}".format(health))
