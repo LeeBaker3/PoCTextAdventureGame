@@ -93,6 +93,9 @@ def itemsMessage(currentLocation, items):
     
     # itemList (string): A string that will hold the item descriptions
     itemList = 'A '
+    
+    # Populate the itemList (string) with item descriptions from the
+    # currentLocation location (object).
     if itemsLen == 1:
         itemList = itemList + items[currentLocation.items[0]].item_name
     else:
@@ -102,6 +105,10 @@ def itemsMessage(currentLocation, items):
             else:
                 itemList = ', ' + items[str(item)].item_name
 
+    # Build the itemsMessage that is output to the the player. The if/else
+    # statement determines if there is 1 or more items from the
+    # itemsLen (integer) and builds the message for a either a single, or
+    # multiple items.
     if itemsLen == 0:
         itemsMessage = 'There are no items here '
     elif itemsLen == 1:
