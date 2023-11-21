@@ -88,8 +88,10 @@ def itemsMessage(currentLocation, items):
     in-scope location
    '''
 
+    # itemsLen (Integer): The number of items at the current location
     itemsLen = currentLocation.itemsLength()
-
+    
+    # itemList (string): A string that will hold the item descriptions
     itemList = 'A '
     if itemsLen == 1:
         itemList = itemList + items[currentLocation.items[0]].item_name
