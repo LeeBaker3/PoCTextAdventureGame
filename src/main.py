@@ -90,10 +90,10 @@ def itemsMessage(currentLocation, items):
 
     # itemsLen (Integer): The number of items at the current location
     itemsLen = currentLocation.itemsLength()
-    
+
     # itemList (string): A string that will hold the item descriptions
     itemList = 'A '
-    
+
     # Populate the itemList (string) with item descriptions from the
     # currentLocation location (object).
     if itemsLen == 1:
@@ -160,8 +160,8 @@ def searchPossibleMoves(userAction, possibleMoves):
     return None
 
 
-currentLocation = locations['1']
-health = 2
+currentLocation = locations['0']
+health = 10
 
 while health > 0:
 

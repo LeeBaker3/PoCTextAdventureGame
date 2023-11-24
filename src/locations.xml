@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <locations>
-  <location location_id="1">
+  <location location_id="0">
     <location_name>Eve’s Bedroom</location_name>
     <location_description>You are in your bedroom. You can see your cot and changing table. You can also see the living room through the bedroom door.</location_description>
     <items>
-      <item item_id="1"></item>
+      <item item_id="0"></item>
     </items>
     <moves>
-      <move destination_location_id="2">Go through the bedroom door to the living room</move>
+      <move destination_location_id="1">Go through the bedroom door to the living room</move>
       <move destination_location_id="4">Go through the balcony door to the balcony</move>
     </moves>
   </location>
-  <location location_id="2">
+  <location location_id="1">
     <location_name>Living Room</location_name>
     <location_description>You are in your living room. You can see your dinning table, sofas and mum. You can also see the bedroom through the bedroom door.</location_description>
     <items>
     </items>
     <moves>
-      <move destination_location_id="1">Go through your bedroom door into your bedromm</move>
-      <move destimation_location_id="3">Go through bathroom door into the bathroom</move>
+      <move destination_location_id="0">Go through your bedroom door into your bedroom</move>
+      <move destimation_location_id="2">Go through bathroom door into the bathroom</move>
     </moves>
   </location>
 </locations>
