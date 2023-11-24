@@ -4,8 +4,8 @@
 from player import Player
 from item import Item
 from item import LoadItems
-from locations import Location
-from locations import LoadLocations
+from locatiion.locations import Location
+from locatiion.locations import LoadLocations
 
 import config
 import os
