@@ -4,25 +4,25 @@
 from player import Player
 from item import Item
 from item import LoadItems
-from location.locations import Location
-from location.locations import LoadLocations
+from location.locations import Location, LoadLocations
+# from location.locations import LoadLocations
 
 import config
-import os
 import openai
 import logging
 
-# cwd = os.getcwd()
-# print("Current working directory:", cwd)
+logger = logging.getLogger(__name__)
+logger.setLevel(config.logging['level'])
 
-logging.basicConfig(
-    level=config.logging['level'],
-    format="%(asctime)s %(levelname)s %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-    filename=config.logging['log_file'],
-)
+formatter = logging.Formatter(
+    "%(asctime)s %(name)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
 
-logging.info("App started\n.")
+file_handler = logging.FileHandler(config.logging['log_file'])
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+logger.info("App started\n.")
 
 
 locations = {}  # locations (Dictonary): Holds the game location objects
@@ -73,8 +73,8 @@ def movesMessage(currentLocation):
     for key, value in currentLocation.possibleMoves.items():
         moveList = moveList + ' ' + value
 
-    # Prints movelist for development purposes. Needs to be removed.
-    print(moveList)
+    # Logs movelist for debug purposes.
+    logger.debug('Move list: {}'.format(moveList))
 
     # Build the moveMessage that is output to the the player. The if/else
     # statement determines if there is 1 or more moves from the
@@ -146,7 +146,8 @@ def determineUserInput(possibleActions, playerInput):
         {"role": "user",
             "content": f"Possible actions: {', '.join(possibleActions)}. User input: {playerInput}"}
     ]
-    print(messages)
+    logger.debug('ChatGPT API message:'.format(messages))
+
     # Get ChatGPT's response to determine the move
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  # Use ChatGPT-3.5
@@ -186,14 +187,15 @@ while health > 0:
         userAction = determineUserInput(possibleMoves, playerInput)
 
         print("You choose to: {}".format(userAction))
-        print("Possible moves type: {}".format(currentLocation.possibleMoves))
+        # print("Possible moves type: {}".format(currentLocation.possibleMoves))
 
         newLocationKey = searchPossibleMoves(
             userAction, currentLocation.possibleMoves)
 
         if newLocationKey != None:
 
-            print("key Value : {}".format(newLocationKey))
+            logger.debug(
+                "key Value for new location: {}".format(newLocationKey))
             currentLocation = locations[newLocationKey[0]]
         else:
             print("That doesn't match any of the possible actions")
@@ -201,6 +203,6 @@ while health > 0:
         health = health - 1
     else:
         health = 0
-        print("you chose to exit the game")
+        print("you choose to exit the game")
 
     print("health: {}".format(health))
