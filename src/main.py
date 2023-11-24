@@ -4,15 +4,25 @@
 from player import Player
 from item import Item
 from item import LoadItems
-from locatiion.locations import Location
-from locatiion.locations import LoadLocations
+from location.locations import Location
+from location.locations import LoadLocations
 
 import config
 import os
 import openai
+import logging
 
 # cwd = os.getcwd()
 # print("Current working directory:", cwd)
+
+logging.basicConfig(
+    level=config.logging['level'],
+    format="%(asctime)s %(levelname)s %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    filename=config.logging['log_file'],
+)
+
+logging.info("App started\n.")
 
 
 locations = {}  # locations (Dictonary): Holds the game location objects

@@ -161,3 +161,4 @@ cython_debug/
 
 # Files that contain private information
 config.py
+log.txt
