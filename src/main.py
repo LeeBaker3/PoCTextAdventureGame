@@ -24,12 +24,11 @@ logger.addHandler(file_handler)
 
 logger.info("App started\n.")
 
-
-locations = {}  # locations (Dictonary): Holds the game location objects
+locations = {}  # locations (Dictionary): Holds the game location objects
 loadLocations = LoadLocations(locations, "locations.xml")
 loadLocations.load()
 
-items = {}  # items (Dictonary): Holds the game item objects
+items = {}  # items (Dictionary): Holds the game item objects
 loadItems = LoadItems(items, "items.xml")
 loadItems.load()
 
@@ -53,7 +52,7 @@ print(introduction.format(player.name()))
 def movesMessage(currentLocation):
     '''Summary or Description of the Function
     This function take the currentLocation object and generates a message
-    desribing the number of available moves in the current location and
+    describing the number of available moves in the current location and
     what those moves are.
 
     Parameters:
@@ -90,7 +89,7 @@ def movesMessage(currentLocation):
 def itemsMessage(currentLocation, items):
     '''Summary or Description of the Function
     This function take the currentLocation object and generates a message
-    desribing the number of available items in the current location and what
+    describing the number of available items in the current location and what
     those items are.
 
     Parameters:
