@@ -24,13 +24,16 @@ logger.addHandler(file_handler)
 
 logger.info("App started\n.")
 
+
 locations = {}  # locations (Dictionary): Holds the game location objects
 loadLocations = LoadLocations(locations, "locations.xml")
 loadLocations.load()
 
+
 items = {}  # items (Dictionary): Holds the game item objects
 loadItems = LoadItems(items, "items.xml")
 loadItems.load()
+
 
 start = '\033[1m'  # Bold text
 end = '\033[0;0m'  # Normal text
@@ -47,6 +50,18 @@ player = Player(playerName=playerName)
 
 print('\nHello {}'.format(player.name()))
 print(introduction.format(player.name()))
+
+
+def userInputExit(userInput: str) -> bool:
+    '''Summary or Description of the Function
+    Check is the user has chosen to exit the game.
+    If they have chosen to Exit the function will return True.
+    Otherwise it returns false.
+    '''
+
+    if userInput.lower() == 'exit':
+        return True
+    return False
 
 
 def movesMessage(currentLocation):
@@ -174,7 +189,7 @@ while health > 0:
     itemsMessage(currentLocation, items)
 
     playerInput = input(start + "What would you like to do? :" + end)
-    if playerInput.lower() != "exit":
+    if userInputExit(playerInput) is False:
         possibleMoves = currentLocation.possibleMoves.values()
 
         userAction = determineUserInput(possibleMoves, playerInput)
