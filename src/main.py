@@ -10,6 +10,7 @@ from location.locations import Location, LoadLocations
 import config
 import openai
 import logging
+import sys
 
 logger = logging.getLogger(__name__)
 logger.setLevel(config.logging['level'])
@@ -33,23 +34,6 @@ loadLocations.load()
 items = {}  # items (Dictionary): Holds the game item objects
 loadItems = LoadItems(items, "items.xml")
 loadItems.load()
-
-
-start = '\033[1m'  # Bold text
-end = '\033[0;0m'  # Normal text
-
-
-welcome = 'Welcome to your greatest adventure'
-introduction = 'We are going on an adventure. But first, make sure your '\
-    'parents know {0}! Remember, never go on adventures with strangers\n'
-
-print(welcome)
-playerName = input('{}{}{}'.format(
-    start, 'What is your name adventurer? :', end))
-player = Player(playerName=playerName)
-
-print('\nHello {}'.format(player.name()))
-print(introduction.format(player.name()))
 
 
 def userInputExit(userInput: str) -> bool:
@@ -177,6 +161,28 @@ def searchPossibleMoves(userAction, possibleMoves):
     if result:
         return result[0]
     return None
+
+
+start = '\033[1m'  # Bold text
+end = '\033[0;0m'  # Normal text
+
+
+welcome = 'Welcome to your greatest adventure'
+introduction = 'We are going on an adventure. But first, make sure your '\
+    'parents know {0}! Remember, never go on adventures with strangers\n'
+
+print(welcome)
+playerName = input('{}{}{}'.format(
+    start, 'What is your name adventurer? :', end))
+
+if userInputExit(playerName) == False:
+
+    player = Player(playerName=playerName)
+
+    print('\nHello {}'.format(player.name()))
+    print(introduction.format(player.name()))
+else:
+    sys.exit()
 
 
 currentLocation = locations['0']
