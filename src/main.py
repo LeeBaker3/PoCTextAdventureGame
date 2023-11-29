@@ -101,16 +101,12 @@ def itemsMessage(currentLocation, items):
     itemsLen = currentLocation.itemsLength()
 
     # itemList (string): A string that will hold the item descriptions
-    itemList = '\n- '
+    itemList = ''
 
     # Populate the itemList (string) with item descriptions from the
     # currentLocation location (object).
-    if itemsLen == 1:
-        itemList = itemList + \
-            items[currentLocation.items[0]].item_name
-    else:
-        for item, (value) in enumerate(currentLocation.items):
-            itemList = itemList + items[str(value)].item_name + '\n- '
+    for item, (value) in enumerate(currentLocation.items):
+        itemList = itemList + '\n- ' + items[str(value)].item_name
 
     # Build the itemsMessage that is output to the the player. The if/else
     # statement determines if there is 1 or more items from the
