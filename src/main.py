@@ -45,7 +45,7 @@ playerName = input('{}{}{}'.format(
     start, 'What is your name adventurer? :', end))
 player = Player(playerName=playerName)
 
-print('\nHello {0}'.format(player.name()))
+print('\nHello {}'.format(player.name()))
 print(introduction.format(player.name()))
 
 
@@ -70,7 +70,7 @@ def movesMessage(currentLocation):
     # Populate the empty moveList (string) with move descriptions from the
     # currentLocation location (object).
     for key, value in currentLocation.possibleMoves.items():
-        moveList = moveList + ' ' + value
+        moveList = moveList + '\n- ' + value
 
     # Logs movelist for debug purposes.
     logger.debug('Move list: {}'.format(moveList))
@@ -80,9 +80,9 @@ def movesMessage(currentLocation):
     # movesLen (integer) and builds the message for a either a single, or
     # multiple moves.
     if movesLen > 1:
-        moveMessage = 'There are {0} possible moves' + moveList
+        moveMessage = 'There are {0} possible moves. ' + moveList
     else:
-        moveMessage = 'There is {0} possible move' + moveList
+        moveMessage = 'There is {0} possible move. ' + moveList
     print(moveMessage.format(movesLen))
 
 
@@ -101,18 +101,16 @@ def itemsMessage(currentLocation, items):
     itemsLen = currentLocation.itemsLength()
 
     # itemList (string): A string that will hold the item descriptions
-    itemList = 'A '
+    itemList = '\n- '
 
     # Populate the itemList (string) with item descriptions from the
     # currentLocation location (object).
     if itemsLen == 1:
-        itemList = itemList + items[currentLocation.items[0]].item_name
+        itemList = itemList + \
+            items[currentLocation.items[0]].item_name
     else:
-        for item in enumerate(currentLocation.items):
-            if item in {0, itemsLen-1}:
-                itemList = 'and ' + items[str(item)].item_name
-            else:
-                itemList = ', ' + items[str(item)].item_name
+        for item, (value) in enumerate(currentLocation.items):
+            itemList = itemList + items[str(value)].item_name + '\n-'
 
     # Build the itemsMessage that is output to the the player. The if/else
     # statement determines if there is 1 or more items from the
