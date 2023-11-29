@@ -110,7 +110,7 @@ def itemsMessage(currentLocation, items):
             items[currentLocation.items[0]].item_name
     else:
         for item, (value) in enumerate(currentLocation.items):
-            itemList = itemList + items[str(value)].item_name + '\n-'
+            itemList = itemList + items[str(value)].item_name + '\n- '
 
     # Build the itemsMessage that is output to the the player. The if/else
     # statement determines if there is 1 or more items from the
