@@ -4,7 +4,7 @@
 from player import Player
 from item import Item
 from item import LoadItems
-from location.locations import Location, LoadLocations
+from location.locations import LoadLocations
 # from location.locations import LoadLocations
 
 import config
