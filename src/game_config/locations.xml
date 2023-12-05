@@ -23,4 +23,13 @@
       <move destimation_location_id="2">Go through bathroom door into the bathroom</move>
     </moves>
   </location>
+  <location location_id="2">
+    <location_name>Bathroom</location_name>
+    <location_description>You in the bathroom. You see the shower, your bath where you like to splash/nou can also see the living room through the bedroom door</location_description>
+    <items>
+    </items>
+    <moves>
+      <move destimation_location_id="1">Go through the bathroom door to the living room</move>
+    </moves>
+  </location>
 </locations>

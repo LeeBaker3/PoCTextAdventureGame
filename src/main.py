@@ -3,13 +3,15 @@
 
 import sys
 import logging
+import time
+import config
 from player import Player
 from item import Item
 from item import LoadItems
 from location.locations import LoadLocations
+
 # from location.locations import LoadLocations
 
-import config
 from openai import OpenAI
 
 # Define your OpenAI API key
@@ -209,7 +211,8 @@ while health > 0:
                 "key Value for new location: {}".format(newLocationKey))
             currentLocation = locations[newLocationKey[0]]
         else:
-            print("That doesn't match any of the possible actions")
+            print("{}That doesn't match any of the possible actions{}".format(start, end))
+            time.sleep(2)
 
         health = health - 1
     else:
