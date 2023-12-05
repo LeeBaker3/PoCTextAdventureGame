@@ -31,12 +31,12 @@ logger.info("App started\n.")
 
 
 locations = {}  # locations (Dictionary): Holds the game location objects
-loadLocations = LoadLocations(locations, "locations.xml")
+loadLocations = LoadLocations(locations, "game_config/locations.xml")
 loadLocations.load()
 
 
 items = {}  # items (Dictionary): Holds the game item objects
-loadItems = LoadItems(items, "items.xml")
+loadItems = LoadItems(items, "game_config/items.xml")
 loadItems.load()
 
 
