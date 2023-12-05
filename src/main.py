@@ -1,6 +1,8 @@
 # import player
 # import location
 
+import sys
+import logging
 from player import Player
 from item import Item
 from item import LoadItems
@@ -8,9 +10,11 @@ from location.locations import LoadLocations
 # from location.locations import LoadLocations
 
 import config
-import openai
-import logging
-import sys
+from openai import OpenAI
+
+# Define your OpenAI API key
+api_key = config.openai['api_key']
+client = OpenAI(api_key=api_key)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(config.logging['level'])
@@ -69,7 +73,7 @@ def movesMessage(currentLocation):
     # Populate the empty moveList (string) with move descriptions from the
     # currentLocation location (object).
     for key, value in currentLocation.possibleMoves.items():
-        moveList = moveList + '\n-\n- ' + value
+        moveList = moveList + '\n- ' + value
 
     # Logs movelist for debug purposes.
     logger.debug('Move list: {}'.format(moveList))
@@ -120,10 +124,6 @@ def itemsMessage(currentLocation, items):
     print(itemsMessage.format(itemsLen))
 
 
-# Define your OpenAI API key
-api_key = config.openai['api_key']
-
-
 def determineUserInput(possibleActions, playerInput):
     '''Function to interact with ChatGPT and determine the move
 
@@ -141,15 +141,12 @@ def determineUserInput(possibleActions, playerInput):
     logger.debug('ChatGPT API message:'.format(messages))
 
     # Get ChatGPT's response to determine the move
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Use ChatGPT-3.5
-        messages=messages,
-        max_tokens=20,  # Set to 20. This should be enough to determine the action chosen
-        api_key=api_key
-    )
+    response = client.chat.completions.create(model="gpt-3.5-turbo",  # Use ChatGPT-3.5
+                                              messages=messages,
+                                              max_tokens=20)  # Set to 20. This should be enough to determine the action chosen
 
     # Get the move recommended by ChatGPT-3.5
-    action = response.choices[0].message['content'].strip()
+    action = response.choices[0].message.content.strip()
     return action
 
 
@@ -194,13 +191,13 @@ while health > 0:
     movesMessage(currentLocation)
     itemsMessage(currentLocation, items)
 
-    playerInput = input(start + "What would you like to do? :" + end)
+    playerInput = input(start + "\nWhat would you like to do? :" + end)
     if userInputExit(playerInput) is False:
         possibleMoves = currentLocation.possibleMoves.values()
 
         userAction = determineUserInput(possibleMoves, playerInput)
 
-        print("You choose to: {}".format(userAction))
+        print("\nYou choose to: {}".format(userAction))
         # print("Possible moves type: {}".format(currentLocation.possibleMoves))
 
         newLocationKey = searchPossibleMoves(
@@ -219,4 +216,4 @@ while health > 0:
         health = 0
         print("you choose to exit the game")
 
-    print("health: {}".format(health))
+    print("\nYour health is {}\n".format(health))
