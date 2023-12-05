@@ -4,4 +4,12 @@
     <item_name>Push Chair</item_name>
     <item_description>This is your ride</item_description>
   </item>
+  <item item_id="1">
+    <item_name>A bottle with milk. Yum!!</item_name>
+    <item_description>A bottle with 240mls of formula</item_description>
+  </item>
+  <item item_id="2">
+    <item_name>Gold Shoes</item_name>
+    <item_description>A pair of Gold Ralph Lauren ankle sneekers</item_description>
+  </item>
 </items>

@@ -15,6 +15,8 @@
     <location_name>Living Room</location_name>
     <location_description>You are in your living room. You can see your dinning table, sofas and mum. You can also see the bedroom through the bedroom door.</location_description>
     <items>
+      <item item_id="1"></item>
+      <item item_id="2"></item>
     </items>
     <moves>
       <move destination_location_id="0">Go through your bedroom door into your bedroom</move>
