@@ -4,12 +4,13 @@
 from player import Player
 from item import Item
 from item import LoadItems
-from location.locations import Location, LoadLocations
+from location.locations import LoadLocations
 # from location.locations import LoadLocations
 
 import config
 import openai
 import logging
+import sys
 
 logger = logging.getLogger(__name__)
 logger.setLevel(config.logging['level'])
@@ -24,29 +25,27 @@ logger.addHandler(file_handler)
 
 logger.info("App started\n.")
 
+
 locations = {}  # locations (Dictionary): Holds the game location objects
 loadLocations = LoadLocations(locations, "locations.xml")
 loadLocations.load()
+
 
 items = {}  # items (Dictionary): Holds the game item objects
 loadItems = LoadItems(items, "items.xml")
 loadItems.load()
 
-start = '\033[1m'  # Bold text
-end = '\033[0;0m'  # Normal text
 
+def userInputExit(userInput: str) -> bool:
+    '''Summary or Description of the Function
+    Check is the user has chosen to exit the game.
+    If they have chosen to Exit the function will return True.
+    Otherwise it returns false.
+    '''
 
-welcome = 'Welcome to your greatest adventure'
-introduction = 'We are going on an adventure. But first, make sure your '\
-    'parents know {0}! Remember, never go on adventures with strangers\n'
-
-print(welcome)
-playerName = input('{}{}{}'.format(
-    start, 'What is your name adventurer? :', end))
-player = Player(playerName=playerName)
-
-print('\nHello {0}'.format(player.name()))
-print(introduction.format(player.name()))
+    if userInput.lower() == 'exit':
+        return True
+    return False
 
 
 def movesMessage(currentLocation):
@@ -70,7 +69,7 @@ def movesMessage(currentLocation):
     # Populate the empty moveList (string) with move descriptions from the
     # currentLocation location (object).
     for key, value in currentLocation.possibleMoves.items():
-        moveList = moveList + '\n- ' + value
+        moveList = moveList + '\n-\n- ' + value
 
     # Logs movelist for debug purposes.
     logger.debug('Move list: {}'.format(moveList))
@@ -80,9 +79,9 @@ def movesMessage(currentLocation):
     # movesLen (integer) and builds the message for a either a single, or
     # multiple moves.
     if movesLen > 1:
-        moveMessage = 'There are {0} possible moves. ' + moveList
+        moveMessage = 'There are {0} possible moves. . ' + moveList
     else:
-        moveMessage = 'There is {0} possible move. ' + moveList
+        moveMessage = 'There is {0} possible move. . ' + moveList
     print(moveMessage.format(movesLen))
 
 
@@ -105,16 +104,8 @@ def itemsMessage(currentLocation, items):
 
     # Populate the itemList (string) with item descriptions from the
     # currentLocation location (object).
-
-    if itemsLen == 1:
-        itemList = itemList + '\n- ' + \
-            items[currentLocation.items[0]].item_name
-    else:
-        for item, (value) in enumerate(currentLocation.items):
-            if item in {0, itemsLen-1}:
-                itemList = 'and ' + items[str(value)].item_name
-            else:
-                itemList = ', ' + items[str(value)].item_name
+    for item, (value) in enumerate(currentLocation.items):
+        itemList = itemList + '\n- ' + items[str(value)].item_name
 
     # Build the itemsMessage that is output to the the player. The if/else
     # statement determines if there is 1 or more items from the
@@ -172,6 +163,28 @@ def searchPossibleMoves(userAction, possibleMoves):
     return None
 
 
+start = '\033[1m'  # Bold text
+end = '\033[0;0m'  # Normal text
+
+
+welcome = 'Welcome to your greatest adventure'
+introduction = 'We are going on an adventure. But first, make sure your '\
+    'parents know {0}! Remember, never go on adventures with strangers\n'
+
+print(welcome)
+playerName = input('{}{}{}'.format(
+    start, 'What is your name adventurer? :', end))
+
+if userInputExit(playerName) == False:
+
+    player = Player(playerName=playerName)
+
+    print('\nHello {}'.format(player.name()))
+    print(introduction.format(player.name()))
+else:
+    sys.exit()
+
+
 currentLocation = locations['0']
 health = 10
 
@@ -182,7 +195,7 @@ while health > 0:
     itemsMessage(currentLocation, items)
 
     playerInput = input(start + "What would you like to do? :" + end)
-    if playerInput.lower() != "exit":
+    if userInputExit(playerInput) is False:
         possibleMoves = currentLocation.possibleMoves.values()
 
         userAction = determineUserInput(possibleMoves, playerInput)
