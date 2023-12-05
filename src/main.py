@@ -9,6 +9,7 @@ from player import Player
 from item import Item
 from item import LoadItems
 from location.locations import LoadLocations
+from itemList import ItemList
 
 # from location.locations import LoadLocations
 
@@ -40,6 +41,20 @@ loadLocations.load()
 items = {}  # items (Dictionary): Holds the game item objects
 loadItems = LoadItems(items, "game_config/items.xml")
 loadItems.load()
+
+itemList = ItemList()
+itemList.maxListLength = 3
+
+# following code needs to be removed and replaced with a test class
+itemList.maxListLength = 3
+item1 = Item(1, 'test', 'test')
+item2 = Item(2, 'test', 'test')
+item3 = Item(3, 'test', 'test')
+item4 = Item(4, 'test', 'test')
+itemList.append(item1)
+itemList.append(item2)
+itemList.append(item3)
+itemList.append(item4)
 
 
 def userInputExit(userInput: str) -> bool:
