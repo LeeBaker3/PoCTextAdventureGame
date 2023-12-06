@@ -8,8 +8,8 @@ import config
 from player import Player
 from item import Item
 from item import LoadItems
-from location.locations import LoadLocations
-from itemList import ItemList
+from location.locations import LoadLocations, Location
+from item_list import ItemList
 
 # from location.locations import LoadLocations
 
@@ -45,17 +45,6 @@ loadItems.load()
 itemList = ItemList()
 itemList.maxListLength = 3
 
-# following code needs to be removed and replaced with a test class
-itemList.maxListLength = 3
-item1 = Item(1, 'test', 'test')
-item2 = Item(2, 'test', 'test')
-item3 = Item(3, 'test', 'test')
-item4 = Item(4, 'test', 'test')
-itemList.append(item1)
-itemList.append(item2)
-itemList.append(item3)
-itemList.append(item4)
-
 
 def userInputExit(userInput: str) -> bool:
     '''Summary or Description of the Function
@@ -69,7 +58,7 @@ def userInputExit(userInput: str) -> bool:
     return False
 
 
-def movesMessage(currentLocation):
+def movesMessage(currentLocation: Location) -> None:
     '''Summary or Description of the Function
     This function take the currentLocation object and generates a message
     describing the number of available moves in the current location and
@@ -156,6 +145,7 @@ def determineUserInput(possibleActions, playerInput):
             "content": f"Possible actions: {', '.join(possibleActions)}. User input: {playerInput}"}
     ]
     logger.debug('ChatGPT API message:'.format(messages))
+    logger.debug('possibleActions :'.format(possibleActions))
 
     # Get ChatGPT's response to determine the move
     response = client.chat.completions.create(model="gpt-3.5-turbo",  # Use ChatGPT-3.5
@@ -232,6 +222,6 @@ while health > 0:
         health = health - 1
     else:
         health = 0
-        print("you choose to exit the game")
+        print("You've chosen to exit the game")
 
     print("\nYour health is {}\n".format(health))
