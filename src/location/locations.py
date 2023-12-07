@@ -5,7 +5,7 @@ class Location:
     """_summary_
     """
 
-    def __init__(self, id, name, description, items, possibleMoves):
+    def __init__(self, id: str, name: str, description: str, items: str, possibleMoves: str):
         self.location_id = id
         self.location_name = name
         self.location_description = description

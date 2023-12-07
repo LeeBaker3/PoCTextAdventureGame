@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(config.logging['level'])
 
 formatter = logging.Formatter(
-    "%(asctime)s %(name)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
+    "%(asctime)s %(name)s %(funcName)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
 
 file_handler = logging.FileHandler(config.logging['log_file'])
 file_handler.setFormatter(formatter)
@@ -144,8 +144,9 @@ def determineUserInput(possibleActions, playerInput):
         {"role": "user",
             "content": f"Possible actions: {', '.join(possibleActions)}. User input: {playerInput}"}
     ]
-    logger.debug('ChatGPT API message:'.format(messages))
-    logger.debug('possibleActions :'.format(possibleActions))
+    logger.debug(f'ChatGPT API message: {messages}')
+    logger.debug(f'possibleActions: {possibleActions}')
+    logger.debug(f'Player input: {playerInput}')
 
     # Get ChatGPT's response to determine the move
     response = client.chat.completions.create(model="gpt-3.5-turbo",  # Use ChatGPT-3.5
@@ -160,8 +161,8 @@ def determineUserInput(possibleActions, playerInput):
 def searchPossibleMoves(userAction, possibleMoves):
     result = [key for key, value in possibleMoves.items() if value ==
               userAction]
-    # print("Result: {} Type: {} and Length: {}".format(
-    #    str(result), type(result), len(result)))
+    logger.debug(f'possibleActions: {possibleMoves.items()}')
+    logger.debug(f'result: {result}')
     if result:
         return result[0]
     return None

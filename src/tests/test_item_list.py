@@ -4,9 +4,11 @@ from item import Item
 
 
 class TestItemList(unittest.TestCase):
+
     def setUp(self) -> None:
+        self.maxLength = 3
         self.item_list = ItemList()
-        self.item_list.maxListLength = 3
+        self.item_list.maxListLength = self.maxLength
 
     def test_item_list_maxListLength(self) -> None:
         self.assertEqual(3, self.item_list.maxListLength)
@@ -24,5 +26,9 @@ class TestItemList(unittest.TestCase):
         self.item_list.append(item1)
         self.item_list.append(item2)
         self.item_list.append(item3)
-        with self.assertRaises(Exception):
+
+        with self.assertRaises(Exception) as cm:
             self.item_list.append(item4)
+
+        self.assertEqual(str(cm.exception), f"Can't have more than {
+                         self.maxLength} items")

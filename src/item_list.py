@@ -8,7 +8,7 @@ class ItemList(list):
             return super().append(item)
         else:
             raise Exception(
-                "Can't have more than {} itmes".format(self.maxListLength))
+                "Can't have more than {} items".format(self.maxListLength))
 
     @property
     def maxListLength(self):
