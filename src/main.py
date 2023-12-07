@@ -10,9 +10,6 @@ from item import Item
 from item import LoadItems
 from location.locations import LoadLocations, Location
 from item_list import ItemList
-
-# from location.locations import LoadLocations
-
 from openai import OpenAI
 
 # Define your OpenAI API key
@@ -95,7 +92,7 @@ def movesMessage(currentLocation: Location) -> None:
     print(moveMessage.format(movesLen))
 
 
-def itemsMessage(currentLocation, items):
+def itemsMessage(currentLocation: Location, items: dict) -> None:
     '''Summary or Description of the Function
     This function take the currentLocation object and generates a message
     describing the number of available items in the current location and what
