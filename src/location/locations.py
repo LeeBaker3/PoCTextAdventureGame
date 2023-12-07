@@ -12,9 +12,11 @@ class Location:
         self.items = items
         self.possibleMoves = possibleMoves
 
+    @property
     def movesLength(self):
         return len(self.possibleMoves)
 
+    @property
     def itemsLength(self):
         return len(self.items)
 

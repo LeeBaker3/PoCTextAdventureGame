@@ -11,7 +11,7 @@ class TestItemList(unittest.TestCase):
                                                self.item_ids, self.moves)
 
     def test_moves_length(self) -> None:
-        self.assertEqual(self.testLocation.itemsLength(), len(self.item_ids))
+        self.assertEqual(self.testLocation.itemsLength, len(self.item_ids))
 
     def test_items_length(self) -> None:
-        self.assertEqual(self.testLocation.movesLength(), len(self.moves))
+        self.assertEqual(self.testLocation.movesLength, len(self.moves))
