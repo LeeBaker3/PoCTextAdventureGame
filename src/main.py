@@ -8,7 +8,7 @@ import config
 from player import Player
 from item import Item
 from item import LoadItems
-from location.locations import LoadLocations, Location
+from locations.location import LoadLocations, Location
 from item_list import ItemList
 from openai import OpenAI
 
