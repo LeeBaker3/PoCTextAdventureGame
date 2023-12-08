@@ -31,31 +31,31 @@ logger.info("App started\n.")
 
 
 locations = {}  # locations (Dictionary): Holds the game location objects
-loadLocations = LoadLocations(locations, "game_config/locations.xml")
-loadLocations.load()
+load_locations = LoadLocations(locations, "game_config/locations.xml")
+load_locations.load()
 
 
 items = {}  # items (Dictionary): Holds the game item objects
-loadItems = LoadItems(items, "game_config/items.xml")
-loadItems.load()
+load_items = LoadItems(items, "game_config/items.xml")
+load_items.load()
 
-itemList = ItemList()
-itemList.maxListLength = 3
+item_list = ItemList()
+item_list.maxListLength = 3
 
 
-def userInputExit(userInput: str) -> bool:
+def user_input_exit(user_input: str) -> bool:
     '''Summary or Description of the Function
     Check is the user has chosen to exit the game.
     If they have chosen to Exit the function will return True.
     Otherwise it returns false.
     '''
 
-    if userInput.lower() == 'exit':
+    if user_input.lower() == 'exit':
         return True
     return False
 
 
-def movesMessage(currentLocation: Location) -> None:
+def moves_message(current_location: Location) -> None:
     '''Summary or Description of the Function
     This function take the currentLocation object and generates a message
     describing the number of available moves in the current location and
@@ -67,32 +67,32 @@ def movesMessage(currentLocation: Location) -> None:
    '''
 
     # movesLen (Integer): The number of possible moves at the current location
-    movesLen = currentLocation.movesLength
+    moves_len = current_location.movesLength
 
     # moveList (string): An empty string that will hold the possible move
     # descriptions
-    moveList = ''
+    move_list = ''
 
     # Populate the empty moveList (string) with move descriptions from the
     # currentLocation location (object).
-    for key, value in currentLocation.possibleMoves.items():
-        moveList = moveList + '\n- ' + value
+    for key, value in current_location.location_possible_moves.items():
+        move_list = move_list + '\n- ' + value
 
     # Logs movelist for debug purposes.
-    logger.debug('Move list: {}'.format(moveList))
+    logger.debug('Move list: {}'.format(move_list))
 
     # Build the moveMessage that is output to the the player. The if/else
     # statement determines if there is 1 or more moves from the
     # movesLen (integer) and builds the message for a either a single, or
     # multiple moves.
-    if movesLen > 1:
-        moveMessage = 'There are {0} possible moves. . ' + moveList
+    if moves_len > 1:
+        move_message = 'There are {0} possible moves. . ' + move_list
     else:
-        moveMessage = 'There is {0} possible move. . ' + moveList
-    print(moveMessage.format(movesLen))
+        move_message = 'There is {0} possible move. . ' + move_list
+    print(move_message.format(moves_len))
 
 
-def itemsMessage(currentLocation: Location, items: dict) -> None:
+def items_message(current_location: Location, items: dict) -> None:
     '''Summary or Description of the Function
     This function take the currentLocation object and generates a message
     describing the number of available items in the current location and what
@@ -104,30 +104,30 @@ def itemsMessage(currentLocation: Location, items: dict) -> None:
    '''
 
     # itemsLen (Integer): The number of items at the current location
-    itemsLen = currentLocation.itemsLength
+    items_len = current_location.itemsLength
 
     # itemList (string): A string that will hold the item descriptions
-    itemList = ''
+    item_list = ''
 
     # Populate the itemList (string) with item descriptions from the
     # currentLocation location (object).
-    for item, (value) in enumerate(currentLocation.items):
-        itemList = itemList + '\n- ' + items[str(value)].item_name
+    for item, (value) in enumerate(current_location.location_items):
+        item_list = item_list + '\n- ' + items[str(value)].item_name
 
     # Build the itemsMessage that is output to the the player. The if/else
     # statement determines if there is 1 or more items from the
     # itemsLen (integer) and builds the message for a either a single, or
     # multiple items.
-    if itemsLen == 0:
-        itemsMessage = 'There are no items here '
-    elif itemsLen == 1:
-        itemsMessage = 'There is {0} item here. ' + itemList
+    if items_len == 0:
+        items_message = 'There are no items here '
+    elif items_len == 1:
+        items_message = 'There is {0} item here. ' + item_list
     else:
-        itemsMessage = 'There are {0} items here. ' + itemList
-    print(itemsMessage.format(itemsLen))
+        items_message = 'There are {0} items here. ' + item_list
+    print(items_message.format(items_len))
 
 
-def determineUserInput(possibleActions, playerInput):
+def determine_user_input(possible_actions, player_input):
     '''Function to interact with ChatGPT and determine the move
 
     Parameters:
@@ -139,11 +139,11 @@ def determineUserInput(possibleActions, playerInput):
     messages = [
         {"role": "system", "content": "From the user input, determine what the user requested from the possible actions available. Only return the text of the matching possible action. Otherwise return no match"},
         {"role": "user",
-            "content": f"Possible actions: {', '.join(possibleActions)}. User input: {playerInput}"}
+            "content": f"Possible actions: {', '.join(possible_actions)}. User input: {player_input}"}
     ]
     logger.debug(f'ChatGPT API message: {messages}')
-    logger.debug(f'possibleActions: {possibleActions}')
-    logger.debug(f'Player input: {playerInput}')
+    logger.debug(f'possibleActions: {possible_actions}')
+    logger.debug(f'Player input: {player_input}')
 
     # Get ChatGPT's response to determine the move
     response = client.chat.completions.create(model="gpt-3.5-turbo",  # Use ChatGPT-3.5
@@ -155,10 +155,10 @@ def determineUserInput(possibleActions, playerInput):
     return action
 
 
-def searchPossibleMoves(userAction, possibleMoves):
-    result = [key for key, value in possibleMoves.items() if value ==
-              userAction]
-    logger.debug(f'possibleActions: {possibleMoves.items()}')
+def search_possible_moves(user_action, possible_moves):
+    result = [key for key, value in possible_moves.items() if value ==
+              user_action]
+    logger.debug(f'possible_actions: {possible_moves.items()}')
     logger.debug(f'result: {result}')
     if result:
         return result[0]
@@ -174,12 +174,12 @@ introduction = 'We are going on an adventure. But first, make sure your '\
     'parents know {0}! Remember, never go on adventures with strangers\n'
 
 print(welcome)
-playerName = input('{}{}{}'.format(
+player_name = input('{}{}{}'.format(
     start, 'What is your name adventurer? :', end))
 
-if userInputExit(playerName) == False:
+if user_input_exit(player_name) == False:
 
-    player = Player(playerName=playerName)
+    player = Player(playerName=player_name)
 
     print('\nHello {}'.format(player.name()))
     print(introduction.format(player.name()))
@@ -187,32 +187,31 @@ else:
     sys.exit()
 
 
-currentLocation = locations['0']
+current_location = locations['0']
 health = 10
 
 while health > 0:
 
-    print(currentLocation.location_description)
-    movesMessage(currentLocation)
-    itemsMessage(currentLocation, items)
+    print(current_location.location_description)
+    moves_message(current_location)
+    items_message(current_location, items)
 
-    playerInput = input(start + "\nWhat would you like to do? :" + end)
-    if userInputExit(playerInput) is False:
-        possibleMoves = currentLocation.possibleMoves.values()
+    player_input = input(start + "\nWhat would you like to do? :" + end)
+    if user_input_exit(player_input) is False:
+        possible_moves = current_location.location_possible_moves.values()
 
-        userAction = determineUserInput(possibleMoves, playerInput)
+        user_action = determine_user_input(possible_moves, player_input)
 
-        print("\nYou choose to: {}".format(userAction))
-        # print("Possible moves type: {}".format(currentLocation.possibleMoves))
+        print("\nYou choose to: {}".format(user_action))
 
-        newLocationKey = searchPossibleMoves(
-            userAction, currentLocation.possibleMoves)
+        new_location_key = search_possible_moves(
+            user_action, current_location.location_possible_moves)
 
-        if newLocationKey != None:
+        if new_location_key != None:
 
             logger.debug(
-                "key Value for new location: {}".format(newLocationKey))
-            currentLocation = locations[newLocationKey[0]]
+                "key Value for new location: {}".format(new_location_key))
+            current_location = locations[new_location_key[0]]
         else:
             print("{}That doesn't match any of the possible actions{}".format(start, end))
             time.sleep(2)

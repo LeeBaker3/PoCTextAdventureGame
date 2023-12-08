@@ -5,7 +5,7 @@ class Item:
     """_summary_
     """
 
-    def __init__(self, id, name, description):
+    def __init__(self, id: str, name: str, description: str):
         self.item_id = id
         self.item_name = name
         self.item_description = description

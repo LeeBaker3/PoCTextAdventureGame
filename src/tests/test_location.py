@@ -2,7 +2,7 @@ import unittest
 from locations import location
 
 
-class TestItemList(unittest.TestCase):
+class TestLocation(unittest.TestCase):
 
     def setUp(self) -> None:
         self.moves = {'1', 'Leave the scratch through the entrance'}
@@ -10,8 +10,8 @@ class TestItemList(unittest.TestCase):
         self.testLocation = location.Location('1', 'Scratch', 'Serves delightful dark beers. You can see some peanuts, the entrance door, and some comfy old seats',
                                               self.item_ids, self.moves)
 
-    def test_moves_length(self) -> None:
+    def testMovesLength(self) -> None:
         self.assertEqual(self.testLocation.itemsLength, len(self.item_ids))
 
-    def test_items_length(self) -> None:
+    def testItemsLength(self) -> None:
         self.assertEqual(self.testLocation.movesLength, len(self.moves))

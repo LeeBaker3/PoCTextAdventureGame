@@ -7,10 +7,10 @@ class Player():
     def name(self):
         return self.playerName
 
-    def addItems(self, item):
+    def add_items(self, item):
         self.items.append(item)
 
-    def removeItem(self, item):
+    def remove_item(self, item):
         self.items.remove(item)
 
     def items(self):

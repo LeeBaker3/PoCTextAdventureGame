@@ -5,35 +5,35 @@ class Location:
     """_summary_
     """
 
-    def __init__(self, id: str, name: str, description: str, items: list[str], possibleMoves: dict):
+    def __init__(self, id: str, name: str, description: str, items: list[str], possible_moves: dict):
         self.location_id = id
         self.location_name = name
         self.location_description = description
-        self.items = items
-        self.possibleMoves = possibleMoves
+        self.location_items = items
+        self.location_possible_moves = possible_moves
 
     @property
     def movesLength(self):
-        return len(self.possibleMoves)
+        return len(self.location_possible_moves)
 
     @property
     def itemsLength(self):
-        return len(self.items)
+        return len(self.location_items)
 
 
 class LoadLocations:
     """_summary_
     """
 
-    def __init__(self, locations, filePath):
+    def __init__(self, locations, file_path):
         self.locations = locations
-        self.filePath = filePath
+        self.file_path = file_path
 
     def load(self):
         """_summary_
         """
 
-        self.tree = ET.parse(self.filePath)
+        self.tree = ET.parse(self.file_path)
         self.root = self.tree.getroot()
 
         self.locationLen = len(self.root.findall("location"))
