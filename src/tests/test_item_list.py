@@ -8,10 +8,10 @@ class TestItemList(unittest.TestCase):
     def setUp(self) -> None:
         self.maxLength = 3
         self.item_list = ItemList()
-        self.item_list.maxListLength = self.maxLength
+        self.item_list.max_list_length = self.maxLength
 
     def test_item_list_maxListLength(self) -> None:
-        self.assertEqual(3, self.item_list.maxListLength)
+        self.assertEqual(3, self.item_list.max_list_length)
 
     def test_item_list_append_item(self) -> None:
         item1 = Item(1, 'test', 'test')

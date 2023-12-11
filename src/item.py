@@ -15,18 +15,18 @@ class LoadItems:
     """_summary_
     """
 
-    def __init__(self, items, filePath):
+    def __init__(self, items, file_path):
         self.items = items
-        self.filePath = filePath
+        self.file_path = file_path
 
     def load(self):
         """_summary_
         """
 
-        self.tree = ET.parse(self.filePath)
+        self.tree = ET.parse(self.file_path)
         self.root = self.tree.getroot()
 
-        self.itemLen = len(self.root.findall("item"))
+        self.item_len = len(self.root.findall("item"))
 
         for self.child in self.root:
             self.item_id = self.child.get('item_id')

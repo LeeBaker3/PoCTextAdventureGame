@@ -4,16 +4,16 @@ from item import Item
 class ItemList(list):
 
     def append(self, item: Item) -> None:
-        if super().__len__() < self.maxListLength:
+        if super().__len__() < self.max_list_length:
             return super().append(item)
         else:
             raise Exception(
-                "Can't have more than {} items".format(self.maxListLength))
+                "Can't have more than {} items".format(self.max_list_length))
 
     @property
-    def maxListLength(self):
-        return self.__maxListLength
+    def max_list_length(self):
+        return self.__max_list_length
 
-    @maxListLength.setter
-    def maxListLength(self, value):
-        self.__maxListLength = value
+    @max_list_length.setter
+    def max_list_length(self, value):
+        self.__max_list_length = value

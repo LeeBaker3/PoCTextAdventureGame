@@ -1,11 +1,11 @@
 class Player():
 
-    def __init__(self, playerName):
-        self.playerName = playerName
+    def __init__(self, player_name):
+        self.player_name = player_name
         self.items = [None]
 
     def name(self):
-        return self.playerName
+        return self.player_name
 
     def add_items(self, item):
         self.items.append(item)

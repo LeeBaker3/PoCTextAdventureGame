@@ -1,6 +1,3 @@
-# import player
-# import location
-
 import sys
 import logging
 import time
@@ -40,7 +37,7 @@ load_items = LoadItems(items, "game_config/items.xml")
 load_items.load()
 
 item_list = ItemList()
-item_list.maxListLength = 3
+item_list.max_list_length = 3
 
 
 def user_input_exit(user_input: str) -> bool:
@@ -179,7 +176,7 @@ player_name = input('{}{}{}'.format(
 
 if user_input_exit(player_name) == False:
 
-    player = Player(playerName=player_name)
+    player = Player(player_name=player_name)
 
     print('\nHello {}'.format(player.name()))
     print(introduction.format(player.name()))
