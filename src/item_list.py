@@ -17,3 +17,9 @@ class ItemList(list):
     @max_list_length.setter
     def max_list_length(self, value):
         self.__max_list_length = value
+
+    def items_in_list(self) -> str:
+        self.items = ''
+        for self.item in self:
+            self.items = '- ' + self.item.item_name + '\n' + self.items
+        return self.items

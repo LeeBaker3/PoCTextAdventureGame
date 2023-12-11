@@ -178,8 +178,8 @@ if user_input_exit(player_name) == False:
 
     player = Player(player_name=player_name)
 
-    print('\nHello {}'.format(player.name()))
-    print(introduction.format(player.name()))
+    print('\nHello {}'.format(player.player_name))
+    print(introduction.format(player.player_name))
 else:
     sys.exit()
 

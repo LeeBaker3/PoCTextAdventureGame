@@ -15,3 +15,7 @@ class TestLocation(unittest.TestCase):
 
     def testItemsLength(self) -> None:
         self.assertEqual(self.testLocation.movesLength, len(self.moves))
+
+
+if __name__ == '__main__':
+    unittest.main()

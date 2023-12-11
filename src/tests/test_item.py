@@ -15,3 +15,7 @@ class TestItem(unittest.TestCase):
         self.assertEqual(self.item.item_id, self.id)
         self.assertEqual(self.item.item_name, self.name)
         self.assertEqual(self.item.item_description, self.description)
+
+
+if __name__ == '__main__':
+    unittest.main()
