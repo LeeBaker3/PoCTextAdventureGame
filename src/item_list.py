@@ -1,4 +1,4 @@
-from item import Item
+from src.items.item import Item
 
 
 class ItemList(list):

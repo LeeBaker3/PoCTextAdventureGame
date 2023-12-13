@@ -1,6 +1,6 @@
 import unittest
-from player import Player
-from item import Item
+from src.player.player import Player
+from src.items.item import Item
 
 
 class TestPlayer(unittest.TestCase):

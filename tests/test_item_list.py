@@ -1,6 +1,6 @@
 import unittest
-from item_list import ItemList
-from item import Item
+from src.item_list import ItemList
+from src.items.item import Item
 
 
 class TestItemList(unittest.TestCase):

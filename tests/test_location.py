@@ -1,5 +1,5 @@
 import unittest
-from locations import location
+from src.locations import location
 
 
 class TestLocation(unittest.TestCase):

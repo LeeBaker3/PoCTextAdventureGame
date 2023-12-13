@@ -1,4 +1,4 @@
-from item_list import ItemList
+from src.item_list import ItemList
 
 
 class Player():

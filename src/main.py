@@ -1,12 +1,12 @@
 import sys
 import logging
 import time
-import config
-from player import Player
-from item import Item
-from item import LoadItems
-from locations.location import LoadLocations, Location
-from item_list import ItemList
+import src.config as config
+from src.player.player import Player
+from src.items.item import Item
+from src.items.item import LoadItems
+from src.locations.location import LoadLocations, Location
+from src.item_list import ItemList
 from openai import OpenAI
 
 # Define your OpenAI API key
@@ -28,12 +28,12 @@ logger.info("App started\n.")
 
 
 locations = {}  # locations (Dictionary): Holds the game location objects
-load_locations = LoadLocations(locations, "game_config/locations.xml")
+load_locations = LoadLocations(locations, "src/game_config/locations.xml")
 load_locations.load()
 
 
 items = {}  # items (Dictionary): Holds the game item objects
-load_items = LoadItems(items, "game_config/items.xml")
+load_items = LoadItems(items, "src/game_config/items.xml")
 load_items.load()
 
 item_list = ItemList()
