@@ -10,10 +10,10 @@ class TestLocation(unittest.TestCase):
         self.testLocation = location.Location('1', 'Scratch', 'Serves delightful dark beers. You can see some peanuts, the entrance door, and some comfy old seats',
                                               self.item_ids, self.moves)
 
-    def testMovesLength(self) -> None:
+    def test_moves_length(self) -> None:
         self.assertEqual(self.testLocation.itemsLength, len(self.item_ids))
 
-    def testItemsLength(self) -> None:
+    def test_items_length(self) -> None:
         self.assertEqual(self.testLocation.movesLength, len(self.moves))
 
 

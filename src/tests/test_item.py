@@ -10,7 +10,7 @@ class TestItem(unittest.TestCase):
         self.description = '12% Imperial Stout'
         self.item = Item(self.id, self.name, self.description)
 
-    def testItemCreated(self) -> None:
+    def test_item_created(self) -> None:
 
         self.assertEqual(self.item.item_id, self.id)
         self.assertEqual(self.item.item_name, self.name)
