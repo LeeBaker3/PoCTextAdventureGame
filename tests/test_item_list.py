@@ -16,6 +16,7 @@ class TestItemList(unittest.TestCase):
 
     def setUp(self) -> None:
         """_summary_
+        Create an ItemList object and set the maxLength property to 3
         """
         self.maxLength = 3
         self.item_list = ItemList()
@@ -23,11 +24,14 @@ class TestItemList(unittest.TestCase):
 
     def test_item_list_maxListLength(self) -> None:
         """_summary_
+        Test checks if the maxLength property has been set
         """
         self.assertEqual(3, self.item_list.max_list_length)
 
     def test_item_list_append_item(self) -> None:
         """_summary_
+        Test check if an Item object can be appended to the ItemList
+        object
         """
         self.item1 = Item(1, 'test', 'test')
         self.item_list.append(self.item1)
@@ -35,6 +39,8 @@ class TestItemList(unittest.TestCase):
 
     def test_items_in_list(self) -> None:
         """_summary_
+        Test that a string is returned listing the name of the 
+        items in the list
         """
         self.item1 = Item(1, 'test', 'test')
         self.item_list.append(self.item1)
@@ -42,6 +48,9 @@ class TestItemList(unittest.TestCase):
 
     def test_item_list_raise_append_exception(self) -> None:
         """_summary_
+        Test that the number of Item objects in ItemList can not exceed
+        the maxLength property and that an Exception is raised if an attempt
+        is made to exceed maxLength property value.
         """
         self.item1 = Item(1, 'test', 'test')
         self.item2 = Item(2, 'test', 'test')

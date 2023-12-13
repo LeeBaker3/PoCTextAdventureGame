@@ -6,11 +6,19 @@ class Player():
     def __init__(self, player_name: str, max_item_length: int = 3):
         self._player_name = player_name
         self._player_items = ItemList()
-        self._player_items.max_list_length = max_item_length
+        self.max_item_length = max_item_length
 
-    @property
+    @ property
     def player_name(self):
         return self._player_name
+
+    @ property
+    def max_item_length(self):
+        return self._player_items.max_list_length
+
+    @ max_item_length.setter
+    def max_item_length(self, value):
+        self._player_items.max_list_length = value
 
     def add_item(self, item) -> bool:
         try:

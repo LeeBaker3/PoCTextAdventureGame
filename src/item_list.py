@@ -10,11 +10,11 @@ class ItemList(list):
             raise Exception(
                 "Can't have more than {} items".format(self.max_list_length))
 
-    @property
+    @ property
     def max_list_length(self):
         return self.__max_list_length
 
-    @max_list_length.setter
+    @ max_list_length.setter
     def max_list_length(self, value):
         self.__max_list_length = value
 

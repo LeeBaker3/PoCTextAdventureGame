@@ -11,10 +11,18 @@ class TestLocation(unittest.TestCase):
                                               self.item_ids, self.moves)
 
     def test_moves_length(self) -> None:
-        self.assertEqual(self.testLocation.itemsLength, len(self.item_ids))
+        """_summary_
+        Test that the movesLength property is set to the correct value i.e.
+        the number of moves available
+        """
+        self.assertEqual(self.testLocation.movesLength, len(self.moves))
 
     def test_items_length(self) -> None:
-        self.assertEqual(self.testLocation.movesLength, len(self.moves))
+        """_summary_
+        Test that the itemLength property is set to the correct value i.e.
+        the number of items available
+        """
+        self.assertEqual(self.testLocation.itemsLength, len(self.item_ids))
 
 
 if __name__ == '__main__':

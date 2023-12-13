@@ -12,6 +12,7 @@ class TestItem(unittest.TestCase):
 
     def test_item_created(self) -> None:
         """_summary_
+        Test that an Item object is created
         """
         self.assertEqual(self.item.item_id, self.item_id)
         self.assertEqual(self.item.item_name, self.name)
