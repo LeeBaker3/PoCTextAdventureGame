@@ -11,8 +11,19 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "cwd": "${workspaceFolder}/src",
-            "purpose":["debug-in-terminal"]
+            "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "Python: Program",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/src/main.py",
+            "purpose": [
+                "debug-in-terminal"
+            ]
         }
     ]
 }

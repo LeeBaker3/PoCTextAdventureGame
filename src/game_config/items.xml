@@ -3,10 +3,26 @@
   <item item_id="0">
     <item_name>Push Chair</item_name>
     <item_description>This is your ride</item_description>
+    <item_actions>
+    </item_actions>
   </item>
   <item item_id="1">
     <item_name>A bottle with milk. Yum!!</item_name>
     <item_description>A bottle with 240mls of formula</item_description>
+    <item_actions>
+      <action>
+        <action_name>Pick Up</action_name>
+        <action_description></action_description>
+      </action>
+      <action>
+        <action_name>Put Down</action_name>
+        <action_description></action_description>
+      </action>
+      <action>
+        <action_name>Drink</action_name>
+        <action_description></action_description>
+      </action>
+    </item_actions>
   </item>
   <item item_id="2">
     <item_name>Gold Shoes</item_name>
