@@ -11,7 +11,7 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./tests",
+        "./eves_game/tests",
         "-p",
         "test_*.py"
     ],

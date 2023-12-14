@@ -15,3 +15,12 @@ Once I have the basics working, I want to extend the game to use AI generated
 images based on the location describes.
 
 # Requirements 
+
+
+
+# Notes
+Run 'pip install -e .' in the eves_game directory to get all the import working
+correctly. 
+
+If using VS code, checkout the launch.json file to setup VS Code Testing and 
+the settings.json file for debug settings.

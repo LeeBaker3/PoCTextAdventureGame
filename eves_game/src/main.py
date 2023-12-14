@@ -28,12 +28,13 @@ logger.info("App started\n.")
 
 
 locations = {}  # locations (Dictionary): Holds the game location objects
-load_locations = LoadLocations(locations, "src/game_config/locations.xml")
+load_locations = LoadLocations(
+    locations, "eves_game/src/game_config/locations.xml")
 load_locations.load()
 
 
 items = {}  # items (Dictionary): Holds the game item objects
-load_items = LoadItems(items, "src/game_config/items.xml")
+load_items = LoadItems(items, "eves_game/src/game_config/items.xml")
 load_items.load()
 
 item_list = ItemList()
