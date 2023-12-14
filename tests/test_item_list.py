@@ -66,6 +66,21 @@ class TestItemList(unittest.TestCase):
         self.assertEqual(str(cm.exception),
                          f"Can't have more than {self.maxLength} items")
 
+    def test_item_list_remove_item(self) -> None:
+        """_summary_
+        Test that a specific item can be removed from the list
+        """
+
+        self.item1 = Item(1, 'test', 'test')
+        self.item2 = Item(2, 'test', 'test')
+        self.item3 = Item(3, 'test', 'test')
+        self.item_list.append(self.item1)
+        self.item_list.append(self.item2)
+        self.item_list.append(self.item3)
+        self.assertEqual(3, len(self.item_list))
+        self.item_list.remove(self.item1)
+        self.assertEqual(2, len(self.item_list))
+
 
 if __name__ == '__main__':
     unittest.main()

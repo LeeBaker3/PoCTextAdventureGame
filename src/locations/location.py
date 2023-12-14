@@ -14,10 +14,20 @@ class Location:
 
     @property
     def movesLength(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return len(self.location_possible_moves)
 
     @property
     def itemsLength(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return len(self.location_items)
 
 
@@ -25,7 +35,13 @@ class LoadLocations:
     """_summary_
     """
 
-    def __init__(self, locations, file_path):
+    def __init__(self, locations: dict, file_path: str):
+        """_summary_
+
+        Args:
+            locations (_type_): _description_
+            file_path (_type_): _description_
+        """
         self.locations = locations
         self.file_path = file_path
 
@@ -63,5 +79,10 @@ class LoadLocations:
                 self.location_id, self.location_name, self.location_description, self.item_ids, self.destination_location_ids)
             self.locations[self.location_id] = self.newLocation
 
-    def locations(self):
+    def locations(self) -> dict:
+        """_summary_
+
+        Returns:
+            dict: _description_
+        """
         return self.locations
