@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+  <item item_id="1">
+    <item_name>Test Item 1</item_name>
+    <item_description>This is a test item 1</item_description>
+    <item_actions>
+      <action>
+        <action_name holding="Yes">Action1</action_name>
+        <action_description>This is a test action1</action_description>
+      </action>
+    </item_actions>
+  </item>
+  <item item_id="2">
+    <item_name>Test Item 2</item_name>
+    <item_description>This is a test item 2</item_description>
+    <item_actions>
+      <action>
+        <action_name holding="No">Action2</action_name>
+        <action_description>This is a test action2</action_description>
+      </action>
+    </item_actions>
+  </item>
+</items>

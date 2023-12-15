@@ -27,14 +27,15 @@ logger.addHandler(file_handler)
 logger.info("App started\n.")
 
 
+file_path = 'eves_game/src/game_config/'
 locations = {}  # locations (Dictionary): Holds the game location objects
 load_locations = LoadLocations(
-    locations, "eves_game/src/game_config/locations.xml")
+    locations, file_path + "locations.xml")
 load_locations.load()
 
 
 items = {}  # items (Dictionary): Holds the game item objects
-load_items = LoadItems(items, "eves_game/src/game_config/items.xml")
+load_items = LoadItems(items, file_path + "items.xml")
 load_items.load()
 
 item_list = ItemList()
@@ -175,9 +176,9 @@ print(welcome)
 player_name = input('{}{}{}'.format(
     start, 'What is your name adventurer? :', end))
 
-if user_input_exit(player_name) == False:
+player = Player(player_name=player_name)
 
-    player = Player(player_name=player_name)
+if user_input_exit(player_name) == False:
 
     print('\nHello {}'.format(player.player_name))
     print(introduction.format(player.player_name))

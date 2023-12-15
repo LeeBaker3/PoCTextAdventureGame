@@ -5,7 +5,7 @@ class Item:
     """_summary_
     """
 
-    def __init__(self, id: str, name: str, description: str, actions: dict):
+    def __init__(self, id: str, name: str, description: str, actions: dict = None):
         self.item_id = id
         self.item_name = name
         self.item_description = description
@@ -16,7 +16,7 @@ class LoadItems:
     """_summary_
     """
 
-    def __init__(self, items, file_path):
+    def __init__(self, items: dict, file_path: str):
         self.items = items
         self.file_path = file_path
 
@@ -36,15 +36,15 @@ class LoadItems:
                 'item_description').text
             self.item_actions = self.child.find('item_actions')
 
-            self.item_actions = {}
-            # self.actions_len = len(self.actions.findall("action"))
+            self.item_actions_extracted = {}
+            self.actions_len = len(self.item_actions.findall("action"))
             if self.item_actions is not None:
                 for self.action in self.item_actions:
-                    self.item_actions[self.action.get(
-                        'action_name')] = self.action.get('action_description')
+                    self.item_actions_extracted[self.action.find(
+                        'action_name').text] = self.action.find('action_description').text
 
             self.newItem = Item(
-                self.item_id, self.item_name, self.item_description, self.item_actions)
+                self.item_id, self.item_name, self.item_description, self.item_actions_extracted)
             self.items[self.item_id] = self.newItem
 
     def items(self):
