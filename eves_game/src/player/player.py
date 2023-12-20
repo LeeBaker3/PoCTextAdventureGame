@@ -71,3 +71,12 @@ class Player():
             bool: _description_
         """
         self._player_items.remove(item)
+
+    @property
+    def player_items_length(self) -> int:
+        """_summary_
+
+        Returns:
+            int: _description_
+        """
+        return len(self._player_items)

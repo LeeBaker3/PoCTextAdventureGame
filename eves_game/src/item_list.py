@@ -3,7 +3,7 @@ from src.items.item import Item
 
 class ItemList(list):
 
-    def append(self, item: Item) -> None:
+    def append(self, item: 'Item') -> None:
         """_summary_
 
         Args:

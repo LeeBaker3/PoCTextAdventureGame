@@ -41,7 +41,7 @@ class LoadItems:
             if self.item_actions is not None:
                 for self.action in self.item_actions:
                     self.item_actions_extracted[self.action.find(
-                        'action_name').text] = self.action.find('action_description').text
+                        'action_name').text] = {'action_description': self.action.find('action_description').text, 'holding': self.action.get('holding')}
 
             self.newItem = Item(
                 self.item_id, self.item_name, self.item_description, self.item_actions_extracted)

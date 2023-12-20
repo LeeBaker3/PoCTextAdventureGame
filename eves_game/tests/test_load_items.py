@@ -18,14 +18,14 @@ class TestLoadItems(unittest.TestCase):
         self.loadItems.load()
 
         self.item1 = Item('1', 'Test Item 1', 'This is a test item 1', {
-                          'Action1': 'This is a test action1'})
+                          'Put Down': {'action_description': 'This is a test action1', 'holding': 'Yes'}})
 
         self.item2 = Item('2', 'Test Item 2', 'This is a test item 2', {
-                          'Action2': 'This is a test action2'})
+                          'Pick Up': {'action_description': 'This is a test action2', 'holding': 'No'}})
 
         return super().setUp()
 
-    def test_add_one_item(self) -> None:
+    def test_add_two_items(self) -> None:
         self.test_item_dict = self.loadItems.items
         self.test_item1 = self.test_item_dict['1']
         self.test_item2 = self.test_item_dict['2']

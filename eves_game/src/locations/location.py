@@ -13,7 +13,7 @@ class Location:
         self.location_possible_moves = possible_moves
 
     @property
-    def movesLength(self):
+    def moves_length(self):
         """_summary_
 
         Returns:
@@ -22,7 +22,7 @@ class Location:
         return len(self.location_possible_moves)
 
     @property
-    def itemsLength(self):
+    def items_length(self):
         """_summary_
 
         Returns:

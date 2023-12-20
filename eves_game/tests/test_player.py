@@ -6,14 +6,15 @@ from src.items.item import Item
 class TestPlayer(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.player = Player('Lee')
+        self.player_name = 'Bob'
+        self.player = Player(self.player_name)
         return super().setUp()
 
     def test_player_name(self) -> None:
         """_summary_
         Test that the player_name property is correctly set
         """
-        self.assertEqual('Lee', self.player.player_name)
+        self.assertEqual(self.player_name, self.player.player_name)
 
     def test_player_max_item_length_default(self) -> None:
         """_summary_

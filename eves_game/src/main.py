@@ -66,7 +66,7 @@ def moves_message(current_location: Location) -> None:
    '''
 
     # movesLen (Integer): The number of possible moves at the current location
-    moves_len = current_location.movesLength
+    moves_len = current_location.moves_length
 
     # moveList (string): An empty string that will hold the possible move
     # descriptions
@@ -103,7 +103,7 @@ def items_message(current_location: Location, items: dict) -> None:
    '''
 
     # itemsLen (Integer): The number of items at the current location
-    items_len = current_location.itemsLength
+    items_len = current_location.items_length
 
     # itemList (string): A string that will hold the item descriptions
     item_list = ''
