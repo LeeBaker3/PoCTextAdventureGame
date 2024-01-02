@@ -126,7 +126,30 @@ def items_message(current_location: Location, items: dict) -> None:
     print(items_message.format(items_len))
 
 
-def determine_user_input(possible_actions, player_input):
+def create_available_actions(location, player):
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
+    available_actions = []
+
+    for item, (value) in enumerate(current_location.location_items):
+        actions = items[str(value)].actions.items()
+        logger.debug(f'Action list for {
+                     items[str(value)].item_description}: {actions} total actions: {len(actions)}')
+
+        for action in actions:
+            logger.debug(f'Action {action}')
+            _, action_details = action
+            if action_details['holding'] == 'No':
+                available_actions.append(action_details['action_description'])
+
+            logger.debug(f'Available actions {available_actions}')
+    return available_actions
+
+
+def determine_user_input(possible_moves, available_actions, player_input):
     '''Function to interact with ChatGPT and determine the move
 
     Parameters:
@@ -138,10 +161,10 @@ def determine_user_input(possible_actions, player_input):
     messages = [
         {"role": "system", "content": "From the user input, determine what the user requested from the possible actions available. Only return the text of the matching possible action. Otherwise return no match"},
         {"role": "user",
-            "content": f"Possible actions: {', '.join(possible_actions)}. User input: {player_input}"}
+            "content": f"Possible actions: {', '.join(possible_moves)}. User input: {player_input}"}
     ]
     logger.debug(f'ChatGPT API message: {messages}')
-    logger.debug(f'possibleActions: {possible_actions}')
+    logger.debug(f'possibleActions: {possible_moves}')
     logger.debug(f'Player input: {player_input}')
 
     # Get ChatGPT's response to determine the move
@@ -197,9 +220,12 @@ while health > 0:
 
     player_input = input(start + "\nWhat would you like to do? :" + end)
     if user_input_exit(player_input) is False:
-        possible_moves = current_location.location_possible_moves.values()
+        available_moves = current_location.location_possible_moves.values()
+        available_actions = create_available_actions(
+            current_location, player)
 
-        user_action = determine_user_input(possible_moves, player_input)
+        user_action = determine_user_input(
+            available_moves, available_actions, player_input)
 
         print("\nYou choose to: {}".format(user_action))
 

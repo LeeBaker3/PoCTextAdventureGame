@@ -76,7 +76,7 @@ class LoadLocations:
                         'destination_location_id')] = self.move.text
 
             self.newLocation = Location(
-                self.location_id, self.location_name, self.location_description, self.item_ids, self.destination_location_ids)
+                id=self.location_id, name=self.location_name, description=self.location_description, items=self.item_ids, possible_moves=self.destination_location_ids)
             self.locations[self.location_id] = self.newLocation
 
     def locations(self) -> dict:

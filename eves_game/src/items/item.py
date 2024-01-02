@@ -37,14 +37,14 @@ class LoadItems:
             self.item_actions = self.child.find('item_actions')
 
             self.item_actions_extracted = {}
-            self.actions_len = len(self.item_actions.findall("action"))
             if self.item_actions is not None:
+                self.actions_len = len(self.item_actions.findall("action"))
                 for self.action in self.item_actions:
                     self.item_actions_extracted[self.action.find(
                         'action_name').text] = {'action_description': self.action.find('action_description').text, 'holding': self.action.get('holding')}
 
             self.newItem = Item(
-                self.item_id, self.item_name, self.item_description, self.item_actions_extracted)
+                id=self.item_id, name=self.item_name, description=self.item_description, actions=self.item_actions_extracted)
             self.items[self.item_id] = self.newItem
 
     def items(self):
