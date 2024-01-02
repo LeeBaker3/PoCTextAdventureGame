@@ -187,63 +187,67 @@ def search_possible_moves(user_action, possible_moves):
     return None
 
 
-start = '\033[1m'  # Bold text
-end = '\033[0;0m'  # Normal text
+def main():
+    start = '\033[1m'  # Bold text
+    end = '\033[0;0m'  # Normal text
 
+    welcome = 'Welcome to your greatest adventure'
+    introduction = 'We are going on an adventure. But first, make sure your '\
+        'parents know {0}! Remember, never go on adventures with strangers\n'
 
-welcome = 'Welcome to your greatest adventure'
-introduction = 'We are going on an adventure. But first, make sure your '\
-    'parents know {0}! Remember, never go on adventures with strangers\n'
+    print(welcome)
+    player_name = input('{}{}{}'.format(
+        start, 'What is your name adventurer? :', end))
 
-print(welcome)
-player_name = input('{}{}{}'.format(
-    start, 'What is your name adventurer? :', end))
+    player = Player(player_name=player_name)
 
-player = Player(player_name=player_name)
+    if user_input_exit(player_name) == False:
 
-if user_input_exit(player_name) == False:
-
-    print('\nHello {}'.format(player.player_name))
-    print(introduction.format(player.player_name))
-else:
-    sys.exit()
-
-
-current_location = locations['0']
-health = 10
-
-while health > 0:
-
-    print(current_location.location_description)
-    moves_message(current_location)
-    items_message(current_location, items)
-
-    player_input = input(start + "\nWhat would you like to do? :" + end)
-    if user_input_exit(player_input) is False:
-        available_moves = current_location.location_possible_moves.values()
-        available_actions = create_available_actions(
-            current_location, player)
-
-        user_action = determine_user_input(
-            available_moves, available_actions, player_input)
-
-        print("\nYou choose to: {}".format(user_action))
-
-        new_location_key = search_possible_moves(
-            user_action, current_location.location_possible_moves)
-
-        if new_location_key != None:
-
-            logger.debug(
-                "key Value for new location: {}".format(new_location_key))
-            current_location = locations[new_location_key[0]]
-        else:
-            print("{}That doesn't match any of the possible actions{}".format(start, end))
-            time.sleep(2)
-
-        health = health - 1
+        print('\nHello {}'.format(player.player_name))
+        print(introduction.format(player.player_name))
     else:
-        health = 0
-        print("You've chosen to exit the game")
+        sys.exit()
 
-    print("\nYour health is {}\n".format(health))
+    current_location = locations['0']
+    health = 10
+
+    while health > 0:
+
+        print(current_location.location_description)
+        moves_message(current_location)
+        items_message(current_location, items)
+
+        player_input = input(start + "\nWhat would you like to do? :" + end)
+        if user_input_exit(player_input) is False:
+            available_moves = current_location.location_possible_moves.values()
+            available_actions = create_available_actions(
+                current_location, player)
+
+            user_action = determine_user_input(
+                available_moves, available_actions, player_input)
+
+            print("\nYou choose to: {}".format(user_action))
+
+            new_location_key = search_possible_moves(
+                user_action, current_location.location_possible_moves)
+
+            if new_location_key != None:
+
+                logger.debug(
+                    "key Value for new location: {}".format(new_location_key))
+                current_location = locations[new_location_key[0]]
+            else:
+                print(
+                    "{}That doesn't match any of the possible actions{}".format(start, end))
+                time.sleep(2)
+
+            health = health - 1
+        else:
+            health = 0
+            print("You've chosen to exit the game")
+
+        print("\nYour health is {}\n".format(health))
+
+
+if __name__ == "__main__":
+    main()
