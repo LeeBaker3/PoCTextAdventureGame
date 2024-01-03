@@ -140,11 +140,10 @@ def create_available_actions(location: Location, player: Player, items: List[Ite
 
     for item, (value) in enumerate(location.location_items):
         actions = items[str(value)].actions.items()
-        logger.debug(f'Action list for {
-                     items[str(value)].item_description}: {actions} total actions: {len(actions)}')
+        logger.debug('Action list for {items[str(value)].item_description}: '
+                     f'{actions} total actions: {len(actions)}')
 
         for action in actions:
-            logger.debug(f'Action {action}')
             _, action_details = action
             if action_details['holding'] == 'No':
                 available_actions.append(action_details['action_description'])
@@ -155,7 +154,7 @@ def create_available_actions(location: Location, player: Player, items: List[Ite
     return available_actions
 
 
-def determine_user_input(possible_moves: List[str], available_actions: List[str], player_input: str, logger: Logger) -> str:
+def determine_user_input(available_actions: List[str], player_input: str, logger: Logger) -> str:
     """Function to interact with ChatGPT and determine the move
 
     Parameters:
@@ -171,10 +170,10 @@ def determine_user_input(possible_moves: List[str], available_actions: List[str]
     messages = [
         {"role": "system", "content": "From the user input, determine what the user requested from the possible actions available. Only return the text of the matching possible action. Otherwise return no match"},
         {"role": "user",
-            "content": f"Possible actions: {', '.join(possible_moves)}. User input: {player_input}"}
+            "content": f"Possible actions: {', '.join(available_actions)}. User input: {player_input}"}
     ]
     logger.debug(f'ChatGPT API message: {messages}')
-    logger.debug(f'possibleActions: {possible_moves}')
+    logger.debug(f'possibleActions: {available_actions}')
     logger.debug(f'Player input: {player_input}')
 
     # Get ChatGPT's response to determine the move
@@ -190,7 +189,7 @@ def determine_user_input(possible_moves: List[str], available_actions: List[str]
 def search_possible_moves(user_action: str, possible_moves: dict, logger: Logger) -> str:
     result = [key for key, value in possible_moves.items() if value ==
               user_action]
-    logger.debug(f'possible_actions: {possible_moves.items()}')
+    logger.debug(f'possible_moves: {possible_moves.items()}')
     logger.debug(f'result: {result}')
     if result:
         return result[0]
@@ -247,12 +246,13 @@ def main():
 
         player_input = input(start + "\nWhat would you like to do? :" + end)
         if user_input_exit(player_input) is False:
-            available_moves = current_location.location_possible_moves.values()
+            available_moves = list(
+                current_location.location_possible_moves.values())
             available_actions = create_available_actions(
                 location=current_location, player=player, items=items, logger=logger)
 
             user_action = determine_user_input(
-                possible_moves=available_moves, available_actions=available_actions, player_input=player_input, logger=logger)
+                available_actions=(available_actions + available_moves), player_input=player_input, logger=logger)
 
             print("\nYou choose to: {}".format(user_action))
 

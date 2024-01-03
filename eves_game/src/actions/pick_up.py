@@ -3,10 +3,11 @@ from src.actions.action import Action
 
 class PickUp(Action):
 
-    def __init__(self, player: 'Player', location: 'Location', item: 'item', **kwargs) -> None:
+    def __init__(self, player: 'Player', location: 'Location', item: 'Item', **kwargs) -> None:
         self.player = player
         self.location = location
         self.item = item
+        self.action_type = 'location'
         super().__init__()
 
     def action(self) -> (bool, str):
