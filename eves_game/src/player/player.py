@@ -80,3 +80,6 @@ class Player():
             int: _description_
         """
         return len(self._player_items)
+
+    def player_items(self) -> ItemList:
+        return self._player_items

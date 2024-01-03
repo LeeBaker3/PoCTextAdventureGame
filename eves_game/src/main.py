@@ -3,43 +3,29 @@ import logging
 import time
 import src.config as config
 from src.player.player import Player
+from logging import Logger
 from src.items.item import Item
 from src.items.item import LoadItems
 from src.locations.location import LoadLocations, Location
 from src.item_list import ItemList
 from openai import OpenAI
-
-# Define your OpenAI API key
-api_key = config.openai['api_key']
-client = OpenAI(api_key=api_key)
-
-logger = logging.getLogger(__name__)
-logger.setLevel(config.logging['level'])
-
-formatter = logging.Formatter(
-    "%(asctime)s %(name)s %(funcName)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
-
-file_handler = logging.FileHandler(config.logging['log_file'])
-file_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-
-logger.info("App started\n.")
+from typing import List
 
 
-file_path = 'eves_game/src/game_config/'
-locations = {}  # locations (Dictionary): Holds the game location objects
-load_locations = LoadLocations(
-    locations, file_path + "locations.xml")
-load_locations.load()
+def create_logger() -> Logger:
+    logger = logging.getLogger(__name__)
+    logger.setLevel(config.logging['level'])
 
+    formatter = logging.Formatter(
+        "%(asctime)s %(name)s %(funcName)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
 
-items = {}  # items (Dictionary): Holds the game item objects
-load_items = LoadItems(items, file_path + "items.xml")
-load_items.load()
+    file_handler = logging.FileHandler(config.logging['log_file'])
+    file_handler.setFormatter(formatter)
 
-item_list = ItemList()
-item_list.max_list_length = 3
+    logger.addHandler(file_handler)
+
+    logger.info("Logger created\n.")
+    return logger
 
 
 def user_input_exit(user_input: str) -> bool:
@@ -54,19 +40,19 @@ def user_input_exit(user_input: str) -> bool:
     return False
 
 
-def moves_message(current_location: Location) -> None:
+def moves_message(location: Location, logger: Logger) -> None:
     '''Summary or Description of the Function
-    This function take the currentLocation object and generates a message
-    describing the number of available moves in the current location and
+    This function take a Location object and generates a message
+    describing the number of available moves in the  location and
     what those moves are.
 
     Parameters:
-    currentLocation (obj): instance of the location.py object that is
+    Location (obj): instance of the location.py object that is
     current in-scope location
    '''
 
     # movesLen (Integer): The number of possible moves at the current location
-    moves_len = current_location.moves_length
+    moves_len = location.moves_length
 
     # moveList (string): An empty string that will hold the possible move
     # descriptions
@@ -74,7 +60,7 @@ def moves_message(current_location: Location) -> None:
 
     # Populate the empty moveList (string) with move descriptions from the
     # currentLocation location (object).
-    for key, value in current_location.location_possible_moves.items():
+    for key, value in location.location_possible_moves.items():
         move_list = move_list + '\n- ' + value
 
     # Logs movelist for debug purposes.
@@ -91,26 +77,26 @@ def moves_message(current_location: Location) -> None:
     print(move_message.format(moves_len))
 
 
-def items_message(current_location: Location, items: dict) -> None:
+def location_items_message(location: Location, items: dict, logger: Logger) -> None:
     '''Summary or Description of the Function
-    This function take the currentLocation object and generates a message
-    describing the number of available items in the current location and what
+    This function take a Location object and generates a message
+    describing the number of available items in the location and what
     those items are.
 
     Parameters:
-    currentLocation (obj): instance of the location.py object that is current
+    Location (obj): instance of the location.py object that is current
     in-scope location
    '''
 
     # itemsLen (Integer): The number of items at the current location
-    items_len = current_location.items_length
+    items_len = location.items_length
 
     # itemList (string): A string that will hold the item descriptions
     item_list = ''
 
     # Populate the itemList (string) with item descriptions from the
     # currentLocation location (object).
-    for item, (value) in enumerate(current_location.location_items):
+    for item, (value) in enumerate(location.location_items):
         item_list = item_list + '\n- ' + items[str(value)].item_name
 
     # Build the itemsMessage that is output to the the player. The if/else
@@ -126,7 +112,25 @@ def items_message(current_location: Location, items: dict) -> None:
     print(items_message.format(items_len))
 
 
-def create_available_actions(location, player):
+def user_items_message(player: Player, logger: Logger) -> None:
+    """_summary_
+
+    Args:
+        player (Player): _description_
+        logger (Logger): _description_
+    """
+
+    item_list = ''
+    if player.player_items_length > 0:
+        for item in player.player_items:
+            item_list = item_list + '\n- ' + item.item_name
+            item_message = f'You are currently carrying: {item_list}'
+    else:
+        item_message = f'You not currently carrying any items'
+    print(item_message)
+
+
+def create_available_actions(location: Location, player: Player, items: List[Item], logger: Logger) -> List[str]:
     """_summary_
 
     Returns:
@@ -134,7 +138,7 @@ def create_available_actions(location, player):
     """
     available_actions = []
 
-    for item, (value) in enumerate(current_location.location_items):
+    for item, (value) in enumerate(location.location_items):
         actions = items[str(value)].actions.items()
         logger.debug(f'Action list for {
                      items[str(value)].item_description}: {actions} total actions: {len(actions)}')
@@ -144,20 +148,26 @@ def create_available_actions(location, player):
             _, action_details = action
             if action_details['holding'] == 'No':
                 available_actions.append(action_details['action_description'])
+            else:
+                pass
 
             logger.debug(f'Available actions {available_actions}')
     return available_actions
 
 
-def determine_user_input(possible_moves, available_actions, player_input):
-    '''Function to interact with ChatGPT and determine the move
+def determine_user_input(possible_moves: List[str], available_actions: List[str], player_input: str, logger: Logger) -> str:
+    """Function to interact with ChatGPT and determine the move
 
     Parameters:
     possibleActions (array): A list of the current possible actions/moves
     playerInput (string): Text string input by the player requesting what
     action/move the player wants to execute.
+   """
 
-   '''
+    # Define your OpenAI API key
+    api_key = config.openai['api_key']
+    client = OpenAI(api_key=api_key)
+
     messages = [
         {"role": "system", "content": "From the user input, determine what the user requested from the possible actions available. Only return the text of the matching possible action. Otherwise return no match"},
         {"role": "user",
@@ -177,7 +187,7 @@ def determine_user_input(possible_moves, available_actions, player_input):
     return action
 
 
-def search_possible_moves(user_action, possible_moves):
+def search_possible_moves(user_action: str, possible_moves: dict, logger: Logger) -> str:
     result = [key for key, value in possible_moves.items() if value ==
               user_action]
     logger.debug(f'possible_actions: {possible_moves.items()}')
@@ -188,6 +198,22 @@ def search_possible_moves(user_action, possible_moves):
 
 
 def main():
+    logger = create_logger()
+    logger.info("App started\n.")
+
+    file_path = 'eves_game/src/game_config/'
+    locations = {}  # locations (Dictionary): Holds the game location objects
+    load_locations = LoadLocations(
+        locations, file_path + "locations.xml")
+    load_locations.load()
+
+    items = {}  # items (Dictionary): Holds the game item objects
+    load_items = LoadItems(items, file_path + "items.xml")
+    load_items.load()
+
+    item_list = ItemList()
+    item_list.max_list_length = 3
+
     start = '\033[1m'  # Bold text
     end = '\033[0;0m'  # Normal text
 
@@ -214,22 +240,24 @@ def main():
     while health > 0:
 
         print(current_location.location_description)
-        moves_message(current_location)
-        items_message(current_location, items)
+        moves_message(location=current_location, logger=logger)
+        location_items_message(location=current_location,
+                               items=items, logger=logger)
+        user_items_message(player=player, logger=logger)
 
         player_input = input(start + "\nWhat would you like to do? :" + end)
         if user_input_exit(player_input) is False:
             available_moves = current_location.location_possible_moves.values()
             available_actions = create_available_actions(
-                current_location, player)
+                location=current_location, player=player, items=items, logger=logger)
 
             user_action = determine_user_input(
-                available_moves, available_actions, player_input)
+                possible_moves=available_moves, available_actions=available_actions, player_input=player_input, logger=logger)
 
             print("\nYou choose to: {}".format(user_action))
 
             new_location_key = search_possible_moves(
-                user_action, current_location.location_possible_moves)
+                user_action=user_action, possible_moves=current_location.location_possible_moves, logger=logger)
 
             if new_location_key != None:
 
