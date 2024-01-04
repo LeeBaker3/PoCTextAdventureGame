@@ -10,6 +10,9 @@ from src.locations.location import LoadLocations, Location
 from src.item_list import ItemList
 from openai import OpenAI
 from typing import List
+from pathlib import Path
+
+file_path = Path(__file__).parent
 
 
 def create_logger() -> Logger:
@@ -200,14 +203,19 @@ def main():
     logger = create_logger()
     logger.info("App started\n.")
 
-    file_path = 'eves_game/src/game_config/'
+    config_folder_path = file_path / config.game_config['game_config_folder']
+    items_config_file = config_folder_path / config.game_config['items_config']
+    locations_config_file = config_folder_path / \
+        config.game_config['locations_config']
+
+    # file_path = 'eves_game/src/game_config/'
     locations = {}  # locations (Dictionary): Holds the game location objects
     load_locations = LoadLocations(
-        locations, file_path + "locations.xml")
+        locations, locations_config_file)
     load_locations.load()
 
     items = {}  # items (Dictionary): Holds the game item objects
-    load_items = LoadItems(items, file_path + "items.xml")
+    load_items = LoadItems(items, items_config_file)
     load_items.load()
 
     item_list = ItemList()
