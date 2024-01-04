@@ -9,8 +9,8 @@ from src.items.item import LoadItems
 from src.locations.location import LoadLocations, Location
 from src.item_list import ItemList
 from openai import OpenAI
-from typing import List
 from pathlib import Path
+from typing import List
 
 file_path = Path(__file__).parent
 
@@ -208,7 +208,6 @@ def main():
     locations_config_file = config_folder_path / \
         config.game_config['locations_config']
 
-    # file_path = 'eves_game/src/game_config/'
     locations = {}  # locations (Dictionary): Holds the game location objects
     load_locations = LoadLocations(
         locations, locations_config_file)
@@ -218,26 +217,22 @@ def main():
     load_items = LoadItems(items, items_config_file)
     load_items.load()
 
-    item_list = ItemList()
-    item_list.max_list_length = 3
-
     start = '\033[1m'  # Bold text
     end = '\033[0;0m'  # Normal text
 
     welcome = 'Welcome to your greatest adventure'
-    introduction = 'We are going on an adventure. But first, make sure your '\
-        'parents know {0}! Remember, never go on adventures with strangers\n'
 
     print(welcome)
-    player_name = input('{}{}{}'.format(
-        start, 'What is your name adventurer? :', end))
+    player_name = input(f'{start}What is your name adventurer? : {end}')
+    introduction = ('We are going on an adventure. But first, make sure your '
+                    f'parents know {player_name}! Remember, never go on adventures with strangers\n')
 
     player = Player(player_name=player_name)
 
     if user_input_exit(player_name) == False:
 
-        print('\nHello {}'.format(player.player_name))
-        print(introduction.format(player.player_name))
+        print(f'\nHello {player_name}')
+        print(introduction)
     else:
         sys.exit()
 
@@ -252,7 +247,7 @@ def main():
                                items=items, logger=logger)
         user_items_message(player=player, logger=logger)
 
-        player_input = input(start + "\nWhat would you like to do? :" + end)
+        player_input = input(f'{start}\nWhat would you like to do? : {end}')
         if user_input_exit(player_input) is False:
             available_moves = list(
                 current_location.location_possible_moves.values())
@@ -262,19 +257,18 @@ def main():
             user_action = determine_user_input(
                 available_actions=(available_actions + available_moves), player_input=player_input, logger=logger)
 
-            print("\nYou choose to: {}".format(user_action))
+            print(f"\nYou choose to: {user_action}")
 
             new_location_key = search_possible_moves(
                 user_action=user_action, possible_moves=current_location.location_possible_moves, logger=logger)
 
             if new_location_key != None:
 
-                logger.debug(
-                    "key Value for new location: {}".format(new_location_key))
+                logger.debug(f"key Value for new location: {new_location_key}")
                 current_location = locations[new_location_key[0]]
             else:
                 print(
-                    "{}That doesn't match any of the possible actions{}".format(start, end))
+                    f"{start}That doesn't match any of the possible actions{end}")
                 time.sleep(2)
 
             health = health - 1
@@ -282,7 +276,7 @@ def main():
             health = 0
             print("You've chosen to exit the game")
 
-        print("\nYour health is {}\n".format(health))
+        print(f"\nYour health is {health}\n")
 
 
 if __name__ == "__main__":
