@@ -38,7 +38,8 @@ def game_start() -> Player:
 
 
 def game_exit() -> None:
-    pass
+    player_output(True, "You've chosen to exit the game")
+    sys.exit()
 
 
 def bold_string(msg: str) -> str:
@@ -257,6 +258,9 @@ def main():
 
     player = Player(player_name=player_name)
 
+    current_location = locations['0']
+    health = 10
+
     if player_input_exit(player_name) == False:
         player_hello_msg = f'\nHello {player_name}'
         player_output(False, player_hello_msg)
@@ -266,10 +270,7 @@ def main():
         player_output(False, introduction_msg)
 
     else:
-        sys.exit()
-
-    current_location = locations['0']
-    health = 10
+        game_exit()
 
     while health > 0:
 
@@ -307,7 +308,7 @@ def main():
             health = health - 1
         else:
             health = 0
-            player_output(False, "You've chosen to exit the game")
+            game_exit()
 
         player_output(False, f"\nYour health is {health}\n")
 

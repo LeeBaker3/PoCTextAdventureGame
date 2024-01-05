@@ -16,7 +16,7 @@ class Action(ABC):
         if value in self.actions:
             self._action_type = value
         else:
-            raise ValueError(f"This is a support action type {value}.")
+            raise ValueError(f"This isn't a support action type {value}.")
 
     @property
     def actions(cls) -> list[str]:
