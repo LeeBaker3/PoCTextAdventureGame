@@ -15,6 +15,50 @@ from typing import List
 file_path = Path(__file__).parent
 
 
+def load_game_config() -> tuple[dict, dict]:
+    config_folder_path = file_path / config.game_config['game_config_folder']
+    items_config_file = config_folder_path / config.game_config['items_config']
+    locations_config_file = config_folder_path / \
+        config.game_config['locations_config']
+
+    locations = {}  # locations (Dictionary): Holds the game location objects
+    load_locations = LoadLocations(
+        locations, locations_config_file)
+    load_locations.load()
+
+    items = {}  # items (Dictionary): Holds the game item objects
+    load_items = LoadItems(items, items_config_file)
+    load_items.load()
+
+    return (locations, items)
+
+
+def game_start() -> Player:
+    pass
+
+
+def game_exit() -> None:
+    pass
+
+
+def bold_string(msg: str) -> str:
+    start = '\033[1m'  # Bold text
+    end = '\033[0;0m'  # Normal text
+    return f'{start}{msg}{end}'
+
+
+def player_output(bold: bool, msg: str) -> None:
+    if bold == True:
+        msg = bold_string(msg)
+    print(msg)
+
+
+def player_input(bold: bool, msg: str) -> str:
+    if bold == True:
+        msg = bold_string(msg)
+    return input(msg)
+
+
 def create_logger() -> Logger:
     logger = logging.getLogger(__name__)
     logger.setLevel(config.logging['level'])
@@ -31,7 +75,7 @@ def create_logger() -> Logger:
     return logger
 
 
-def user_input_exit(user_input: str) -> bool:
+def player_input_exit(user_input: str) -> bool:
     '''Summary or Description of the Function
     Check is the user has chosen to exit the game.
     If they have chosen to Exit the function will return True.
@@ -203,36 +247,24 @@ def main():
     logger = create_logger()
     logger.info("App started\n.")
 
-    config_folder_path = file_path / config.game_config['game_config_folder']
-    items_config_file = config_folder_path / config.game_config['items_config']
-    locations_config_file = config_folder_path / \
-        config.game_config['locations_config']
+    locations, items = load_game_config()
 
-    locations = {}  # locations (Dictionary): Holds the game location objects
-    load_locations = LoadLocations(
-        locations, locations_config_file)
-    load_locations.load()
+    welcome_msg = 'Welcome to your greatest adventure.'
+    player_output(False, welcome_msg)
 
-    items = {}  # items (Dictionary): Holds the game item objects
-    load_items = LoadItems(items, items_config_file)
-    load_items.load()
-
-    start = '\033[1m'  # Bold text
-    end = '\033[0;0m'  # Normal text
-
-    welcome = 'Welcome to your greatest adventure'
-
-    print(welcome)
-    player_name = input(f'{start}What is your name adventurer? : {end}')
-    introduction = ('We are going on an adventure. But first, make sure your '
-                    f'parents know {player_name}! Remember, never go on adventures with strangers\n')
+    player_name_msg = 'What is your name adventurer? : '
+    player_name = player_input(True, player_name_msg)
 
     player = Player(player_name=player_name)
 
-    if user_input_exit(player_name) == False:
+    if player_input_exit(player_name) == False:
+        player_hello_msg = f'\nHello {player_name}'
+        player_output(False, player_hello_msg)
 
-        print(f'\nHello {player_name}')
-        print(introduction)
+        introduction_msg = ('We are going on an adventure. But first, make sure your '
+                            f'parents know {player_name}! Remember, never go on adventures with strangers\n')
+        player_output(False, introduction_msg)
+
     else:
         sys.exit()
 
@@ -247,17 +279,18 @@ def main():
                                items=items, logger=logger)
         user_items_message(player=player, logger=logger)
 
-        player_input = input(f'{start}\nWhat would you like to do? : {end}')
-        if user_input_exit(player_input) is False:
+        player_instructions = player_input(
+            True, f'\nWhat would you like to do? : ')
+        if player_input_exit(player_instructions) is False:
             available_moves = list(
                 current_location.location_possible_moves.values())
             available_actions = create_available_actions(
                 location=current_location, player=player, items=items, logger=logger)
 
             user_action = determine_user_input(
-                available_actions=(available_actions + available_moves), player_input=player_input, logger=logger)
+                available_actions=(available_actions + available_moves), player_input=player_instructions, logger=logger)
 
-            print(f"\nYou choose to: {user_action}")
+            player_output(False, f"\nYou choose to: {user_action}")
 
             new_location_key = search_possible_moves(
                 user_action=user_action, possible_moves=current_location.location_possible_moves, logger=logger)
@@ -267,16 +300,16 @@ def main():
                 logger.debug(f"key Value for new location: {new_location_key}")
                 current_location = locations[new_location_key[0]]
             else:
-                print(
-                    f"{start}That doesn't match any of the possible actions{end}")
+                player_output(
+                    True, f"That doesn't match any of the possible actions")
                 time.sleep(2)
 
             health = health - 1
         else:
             health = 0
-            print("You've chosen to exit the game")
+            player_output(False, "You've chosen to exit the game")
 
-        print(f"\nYour health is {health}\n")
+        player_output(False, f"\nYour health is {health}\n")
 
 
 if __name__ == "__main__":
