@@ -1,6 +1,7 @@
 import unittest
+import logging
 from src.action_factory import ActionFactory
-from src.actions.pick_up import PickUp
+from src.actions import move_location, pick_up
 from src.player.player import Player
 from src.locations.location import Location
 from src.items.item import Item
@@ -25,10 +26,26 @@ class TestActionFactory(unittest.TestCase):
         self.location = Location('1', 'Scratch', 'Serves delightful dark beers. You can see some peanuts, the entrance door, and some comfy old seats',
                                  self.item_ids, self.moves)
 
+        self.locations = [self.location]
+
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel('DEBUG')
+        self.formatter = logging.Formatter(
+            "%(asctime)s %(name)s %(funcName)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
+        self.file_handler = logging.FileHandler('test_log.txt')
+        self.file_handler.setFormatter(self.formatter)
+        self.logger.addHandler(self.file_handler)
+        self.logger.info("Logger created\n.")
+
         self.actionFactory = ActionFactory()
         return super().setUpClass()
 
-    def test_action_factory_create_pick_up(self) -> None:
+    def test_create_pick_up_action(self) -> None:
         self.pick_up = self.actionFactory.create(
-            'PickUp', self.player, self.location, self.item)
-        self.assertIsInstance(self.pick_up, PickUp)
+            'PickUp', self.player, self.location, self.locations, self.item, self.logger, 'Pickup test item 1')
+        self.assertIsInstance(self.pick_up, pick_up.PickUp)
+
+    def test_create_move_action(self) -> None:
+        self.move = self.actionFactory.create(
+            'MoveLocation', self.player, self.location, self.locations, self.item, self.logger, 'Leave the scratch through the entrance')
+        self.assertIsInstance(self.move, move_location.MoveLocation)

@@ -2,34 +2,52 @@
 <locations>
   <location location_id="0">
     <location_name>Eve’s Bedroom</location_name>
+    <location_image_description>A two year olds bedroom. With white walls. One one wall wall is an painting of a teddy bear sat on a cloud. The bedroom has two doors, one to the living room and the other out to a balcony. There is cot, a set of draws/changing table and a trundle bed. All the bedroom future is made from white wood. The floor is pine. In one corner is a pink chair with lots of stuffed toys.</location_image_description>
     <location_description>You are in your bedroom. You can see your cot and changing table. You can also see the living room through the bedroom door.</location_description>
     <items>
       <item item_id="0"></item>
     </items>
     <moves>
-      <move destination_location_id="1">Go through the bedroom door to the living room</move>
-      <move destination_location_id="4">Go through the balcony door to the balcony</move>
+      <move move_id="0" destination_location_id="1">
+        <name>Bedroom to living room</name>
+        <description>Go through the bedroom door to the living room</description>
+      </move>
+      <move move_id="1" destination_location_id="4">
+        <name>Bedroom to balcony</name>
+        <description>Go through the balcony door to the balcony</description>
+      </move>
     </moves>
   </location>
   <location location_id="1">
     <location_name>Living Room</location_name>
+    <location_image_description></location_image_description>
     <location_description>You are in your living room. You can see your dinning table, sofas and mum. You can also see the bedroom through the bedroom door.</location_description>
     <items>
       <item item_id="1"></item>
       <item item_id="2"></item>
     </items>
     <moves>
-      <move destination_location_id="0">Go through your bedroom door into your bedroom</move>
-      <move destination_location_id="2">Go through bathroom door into the bathroom</move>
+      <move move_id="2" destination_location_id="0">
+        <name>Living Room to bedroom</name>
+        <description>Go through your bedroom door into your bedroom</description>
+      </move>
+      <move move_id="3" destination_location_id="2">
+        <name>Living Room to bathroom</name>
+        <description>Go through bathroom door into the bathroom</description>
+      </move>
     </moves>
   </location>
   <location location_id="2">
     <location_name>Bathroom</location_name>
+    <location_image_description></location_image_description>
     <location_description>You in the bathroom. You see the shower, your bath where you like to splash. You can also see the living room through the bedroom door</location_description>
     <items>
     </items>
     <moves>
-      <move destination_location_id="1">Go through the bathroom door to the living room</move>
+      <move move_id="4" destination_location_id="1">
+        <name>Bathroom to living room</name>
+        <description>Go through the bathroom door to the living room</description>
+      </move>
     </moves>
   </location>
 </locations>

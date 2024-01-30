@@ -41,7 +41,7 @@ class LoadItems:
                 self.actions_len = len(self.item_actions.findall("action"))
                 for self.action in self.item_actions:
                     self.item_actions_extracted[self.action.find(
-                        'action_name').text] = {'action_description': self.action.find('action_description').text, 'holding': self.action.get('holding')}
+                        'action_name').text] = {'action_id': self.action.get('action_id'), 'action_description': self.action.find('action_description').text, 'holding': self.action.get('holding')}
 
             self.newItem = Item(
                 id=self.item_id, name=self.item_name, description=self.item_description, actions=self.item_actions_extracted)

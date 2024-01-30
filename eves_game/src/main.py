@@ -2,8 +2,8 @@ import sys
 import logging
 import time
 import src.config as config
-from src.player.player import Player
 from logging import Logger
+from src.player.player import Player
 from src.items.item import Item
 from src.items.item import LoadItems
 from src.locations.location import LoadLocations, Location
@@ -178,7 +178,7 @@ def user_items_message(player: Player, logger: Logger) -> None:
     print(item_message)
 
 
-def create_available_actions(location: Location, player: Player, items: List[Item], logger: Logger) -> List[str]:
+def create_available_actions(location: Location, player: Player, items: List[Item], logger: Logger) -> list[str]:
     """_summary_
 
     Returns:
@@ -244,6 +244,22 @@ def search_possible_moves(user_action: str, possible_moves: dict, logger: Logger
     return None
 
 
+def perform_action(action: str, current_location: Location, locations: dict, player: Player, logger: Logger) -> 'Location':
+
+    new_location_key = search_possible_moves(
+        user_action=action, possible_moves=current_location.location_possible_moves, logger=logger)
+
+    if new_location_key != None:
+
+        logger.debug(f"key Value for new location: {new_location_key}")
+        current_location = locations[new_location_key[0]]
+    else:
+        player_output(
+            True, f"That doesn't match any of the possible actions")
+        time.sleep(2)
+    return current_location
+
+
 def main():
     logger = create_logger()
     logger.info("App started\n.")
@@ -285,26 +301,19 @@ def main():
         if player_input_exit(player_instructions) is False:
             available_moves = list(
                 current_location.location_possible_moves.values())
+
             available_actions = create_available_actions(
                 location=current_location, player=player, items=items, logger=logger)
 
             user_action = determine_user_input(
-                available_actions=(available_actions + available_moves), player_input=player_instructions, logger=logger)
+                available_actions=(available_actions + available_moves),
+                player_input=player_instructions, logger=logger)
 
             player_output(False, f"\nYou choose to: {user_action}")
 
-            new_location_key = search_possible_moves(
-                user_action=user_action, possible_moves=current_location.location_possible_moves, logger=logger)
-
-            if new_location_key != None:
-
-                logger.debug(f"key Value for new location: {new_location_key}")
-                current_location = locations[new_location_key[0]]
-            else:
-                player_output(
-                    True, f"That doesn't match any of the possible actions")
-                time.sleep(2)
-
+            current_location = perform_action(
+                action=user_action, current_location=current_location, locations=locations,
+                player=player, logger=logger)
             health = health - 1
         else:
             health = 0

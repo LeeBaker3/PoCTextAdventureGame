@@ -1,4 +1,22 @@
 import xml.etree.ElementTree as ET
+from dataclasses import dataclass, field
+
+
+@dataclass
+class Move:
+    """
+    Represents a move in the game.
+
+    Attributes:
+        id (str): The unique identifier of the move.
+        name (str): The name of the move.
+        description (str): The description of the move.
+        destination_location_id (str): The identifier of the destination location.
+    """
+    id: str
+    name: str
+    description: str
+    destination_location_id: str
 
 
 class Location:
@@ -73,7 +91,8 @@ class LoadLocations:
             if self.movesLen > 0:
                 for self.move in self.moves:
                     self.destination_location_ids[self.move.get(
-                        'destination_location_id')] = self.move.text
+                        'destination_location_id')] = Move(self.move.get('move_id'), self.move.find('move_name').text, self.move.find('move_description').text, self.move.get('destination_location_id'))
+            #            'destination_location_id')] = self.move.text
 
             self.newLocation = Location(
                 id=self.location_id, name=self.location_name, description=self.location_description, items=self.item_ids, possible_moves=self.destination_location_ids)

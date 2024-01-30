@@ -1,6 +1,7 @@
 from contextlib import AbstractContextManager
 from typing import Any
 import unittest
+import logging
 from src.actions.pick_up import PickUp
 from src.locations.location import Location
 from src.player.player import Player
@@ -11,13 +12,15 @@ class TestPickUp(unittest.TestCase):
     def setUp(self) -> None:
 
         # Setup Location
-        self.location_moves = {'1', 'Leave the scratch through the entrance'}
+        self.location_moves = {'1': 'Leave the scratch through the entrance'}
         self.location_item_ids = ['1', '2']
         self.location_description = 'Serves delightful dark beers. You can see some peanuts, the entrance door, and some comfy old seats'
         self.location_id = '1'
         self_location_name = 'Scratch'
         self.location = Location(
             self.location_id, self_location_name, self.location_description, self.location_item_ids, self.location_item_ids)
+
+        self.locations = {self.location_id: self.location}
 
         # Setup Player
         self.player_name = 'Bob'
@@ -28,14 +31,21 @@ class TestPickUp(unittest.TestCase):
         self.item1 = Item('2', 'Test Item 2', 'This is a test item 2', {
                           'Pick Up': {'action_description': 'This is a test action2', 'holding': 'No'}})
 
-        args = []
-        kwargs = {}
+        # Setup Logger
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel('DEBUG')
+        self.formatter = logging.Formatter(
+            "%(asctime)s %(name)s %(funcName)s %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S")
+        self.file_handler = logging.FileHandler('test_log.txt')
+        self.file_handler.setFormatter(self.formatter)
+        self.logger.addHandler(self.file_handler)
+        self.logger.info("Logger created\n.")
 
-        self.pickUp = PickUp(self.player, self.location,
-                             self.item1, *args, **kwargs)
+        self.pickUp = PickUp('Pickup test item 1', self.player, self.location, self.locations,
+                             self.item1, self.logger)
         return super().setUp()
 
-    def test_action_successful(self) -> None:
+    def test_pickup_action_successful(self) -> None:
         """_summary_
         Test that the PickUp object can successfully adds Test Item 1 to the Player ItemList object
         and removes it from the Location object
@@ -58,3 +68,7 @@ class TestPickUp(unittest.TestCase):
         self.assertFalse(self.success)
         self.assertEqual(self.test_msg, self.action_return_msg)
         self.assertEqual(2, self.location.items_length)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -3,7 +3,8 @@ from src.actions.action import Action
 
 class PickUp(Action):
 
-    def __init__(self, player: 'Player', location: 'Location', item: 'Item', **kwargs) -> None:
+    def __init__(self, selected_action: 'str', player: 'Player', location: 'Location', locations: dict, item: 'Item', logger: 'Logger') -> None:
+        self.selected_action = selected_action
         self.player = player
         self.location = location
         self.item = item

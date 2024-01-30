@@ -10,15 +10,15 @@
     <item_name>A bottle with milk. Yum!!</item_name>
     <item_description>A bottle with 240mls of formula</item_description>
     <item_actions>
-      <action holding="No">
-        <action_name>Pick Up</action_name>
+      <action action_id="1" holding="No">
+        <action_name>PickUp</action_name>
         <action_description>Pick up the bottle with 240mls of formula</action_description>
       </action>
-      <action holding="Yes">
-        <action_name>Put Down</action_name>
+      <action action_id="2" holding="Yes">
+        <action_name>PutDown</action_name>
         <action_description>Put down the bottle</action_description>
       </action>
-      <action holding="Yes">
+      <action action_id="3" holding="Yes">
         <action_name>Drink</action_name>
         <action_description>Drink the bottle of formula</action_description>
       </action>

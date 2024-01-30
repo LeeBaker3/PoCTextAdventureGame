@@ -20,4 +20,4 @@ class Action(ABC):
 
     @property
     def actions(cls) -> list[str]:
-        return ['player', 'location', 'move']
+        return ['player', 'location', 'move_location']
