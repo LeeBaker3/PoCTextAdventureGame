@@ -38,29 +38,69 @@ def game_start() -> Player:
 
 
 def game_exit() -> None:
+    """
+    Exits the game.
+    """
     player_output(True, "You've chosen to exit the game")
     sys.exit()
 
 
 def bold_string(msg: str) -> str:
+    """
+    Formats the given string to be displayed as bold text.
+
+    Args:
+        msg (str): The string to be formatted.
+
+    Returns:
+        str: The formatted string with bold text.
+    """
     start = '\033[1m'  # Bold text
     end = '\033[0;0m'  # Normal text
     return f'{start}{msg}{end}'
 
 
 def player_output(bold: bool, msg: str) -> None:
+    """
+    Prints the given player output message with optional bold formatting.
+
+    This function could be modified to output to other sources such as text box in a UI.
+
+    Args:
+        bold (bool): Indicates whether the message should be printed in bold.
+        msg (str): The message to be printed.
+
+    Returns:
+        None
+    """
     if bold == True:
         msg = bold_string(msg)
     print(msg)
 
 
 def player_input(bold: bool, msg: str) -> str:
+    """
+    Displays a message and takes user input and returns it as a string.
+
+    Args:
+        bold (bool): Indicates whether the message should be displayed in bold.
+        msg (str): The message to be displayed to the user.
+
+    Returns:
+        str: The user's input as a string.
+    """
     if bold == True:
         msg = bold_string(msg)
     return input(msg)
 
 
 def create_logger() -> Logger:
+    """
+    Create and configure a logger object.
+
+    Returns:
+        Logger: The configured logger object.
+    """
     logger = logging.getLogger(__name__)
     logger.setLevel(config.logging['level'])
 
@@ -77,12 +117,15 @@ def create_logger() -> Logger:
 
 
 def player_input_exit(user_input: str) -> bool:
-    '''Summary or Description of the Function
-    Check is the user has chosen to exit the game.
-    If they have chosen to Exit the function will return True.
-    Otherwise it returns false.
-    '''
+    """
+    Checks if the user input is 'exit'.
 
+    Args:
+        user_input (str): The user input to check.
+
+    Returns:
+        bool: True if the user input is 'exit', False otherwise.
+    """
     if user_input.lower() == 'exit':
         return True
     return False
