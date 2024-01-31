@@ -91,7 +91,7 @@ class LoadLocations:
             if self.movesLen > 0:
                 for self.move in self.moves:
                     self.destination_location_ids[self.move.get(
-                        'destination_location_id')] = Move(self.move.get('move_id'), self.move.find('move_name').text, self.move.find('move_description').text, self.move.get('destination_location_id'))
+                        'destination_location_id')] = Move(self.move.get('move_id'), self.move.find('name').text, self.move.find('description').text, self.move.get('destination_location_id'))
             #            'destination_location_id')] = self.move.text
 
             self.newLocation = Location(

@@ -108,8 +108,8 @@ def moves_message(location: Location, logger: Logger) -> None:
 
     # Populate the empty moveList (string) with move descriptions from the
     # currentLocation location (object).
-    for key, value in location.location_possible_moves.items():
-        move_list = move_list + '\n- ' + value
+    for move in location.location_possible_moves.values():
+        move_list = move_list + '\n- ' + move.description
 
     # Logs movelist for debug purposes.
     logger.debug('Move list: {}'.format(move_list))
@@ -188,7 +188,7 @@ def create_available_actions(location: Location, player: Player, items: List[Ite
 
     for item, (value) in enumerate(location.location_items):
         actions = items[str(value)].actions.items()
-        logger.debug('Action list for {items[str(value)].item_description}: '
+        logger.debug(f'Action list for {items[str(value)].item_description}: '
                      f'{actions} total actions: {len(actions)}')
 
         for action in actions:
@@ -235,7 +235,7 @@ def determine_user_input(available_actions: List[str], player_input: str, logger
 
 
 def search_possible_moves(user_action: str, possible_moves: dict, logger: Logger) -> str:
-    result = [key for key, value in possible_moves.items() if value ==
+    result = [key for key, move in possible_moves.items() if move.description ==
               user_action]
     logger.debug(f'possible_moves: {possible_moves.items()}')
     logger.debug(f'result: {result}')
@@ -299,9 +299,8 @@ def main():
         player_instructions = player_input(
             True, f'\nWhat would you like to do? : ')
         if player_input_exit(player_instructions) is False:
-            available_moves = list(
-                current_location.location_possible_moves.values())
-
+            available_moves = [
+                move.description for move in current_location.location_possible_moves.values()]
             available_actions = create_available_actions(
                 location=current_location, player=player, items=items, logger=logger)
 

@@ -73,7 +73,7 @@ class ActionListManager():
         """
         for self.key, self.value in enumerate(self.location.location_possible_moves):
             self.newActionReference = ActionReference(
-                self.value, self.value, self.value, 'move_location')
+                self.value.id, self.value.name, self.value.description, 'move_location')
             self.action_list.append(self.newActionReference)
 
     def create_action_list(self) -> list[dict]:

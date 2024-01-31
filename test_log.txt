@@ -727,3 +727,20 @@
 .
 2024-01-30 16:38:16 test_pickup setUp INFO Logger created
 .
+2024-01-30 16:45:03 test_move_location setUp INFO Logger created
+.
+2024-01-30 16:45:03 test_move_location _search_possible_moves DEBUG possible_moves: dict_items([('2', Move(id='2', name='Scratch exit to Patio', description='Leave the scratch through the entrance to the patio', destination_location_id='1'))])
+2024-01-30 16:45:03 test_move_location _search_possible_moves DEBUG result: ['2']
+2024-01-30 16:45:03 test_move_location action DEBUG key Value for new location: 2
+2024-01-30 16:45:11 test_action_list_manager setUpClass INFO Logger created
+.
+2024-01-30 16:45:12 test_action_list_manager setUpClass INFO Logger created
+.
+2024-01-30 16:45:12 test_action_list_manager _location_items_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip the 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-01-30 16:45:12 test_action_list_manager _location_items_actions DEBUG Location actions 3, Drink, Sip the 12% Imperial Stout. It tastes wonderful, location
+2024-01-30 16:45:12 test_action_list_manager _location_items_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-01-30 16:45:12 test_action_list_manager _location_items_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-01-30 16:45:14 test_action_list_manager setUpClass INFO Logger created
+.
+2024-01-30 16:45:44 test_action_list_manager setUpClass INFO Logger created
+.

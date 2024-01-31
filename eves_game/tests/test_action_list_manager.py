@@ -25,7 +25,7 @@ class TestActionListManager(unittest.TestCase):
 
         self.moves = {}
         self.moves['1'] = Move(
-            '1', 'Scratch exit', 'Leave the scratch through the entrance', '2'))
+            '1', 'Scratch exit', 'Leave the scratch through the entrance', '2')
         self.item_ids = ['3', '4']
         self.location1 = Location('1', 'Scratch', 'Serves delightful dark beers. You can see some peanuts, the entrance door, and some comfy old seats',
                                   self.item_ids, self.moves)
