@@ -3,7 +3,7 @@ import uuid
 
 
 @dataclass
-class ActionReference():
+class ActionReference:
     """
     Represents a reference to an action in the game.
 
@@ -14,14 +14,17 @@ class ActionReference():
         action_type (str): The type of the action i.e. location, player, move.
         actionID (str): The unique identifier of the action as a string.
     """
-    id: str
-    name: str
-    description: str
-    action_type: str
+    id: str = field(repr=True)
+    name: str = field(repr=True)
+    description: str = field(repr=True)
+    action_type: str = field(repr=True)
     actionID: str = field(default=str(uuid.uuid4()))
 
+    def __str__(self) -> str:
+        return f'ActionReference: {self.id}, {self.name}, {self.description}, {self.action_type}'
 
-class ActionListManager():
+
+class ActionListManager:
 
     def __init__(self, location: 'Location', player: 'Player', items: dict['Item'], locations: dict['Location'], logger: 'Logger') -> None:
         """
@@ -39,9 +42,9 @@ class ActionListManager():
         self.items = items
         self.locations = locations
         self.logger = logger
-        self.action_list = [ActionReference]
+        self.action_reference_list = []
 
-    def get_action_type(action_description: str) -> str:
+    def get_action_type(self, action_description: str) -> str:
         pass
 
     def _location_items_actions(self) -> None:
@@ -56,12 +59,12 @@ class ActionListManager():
             self.logger.debug(f'Location actions for Action List for {self.items[str(self.value)].item_description}: '
                               f'{self.actions} total actions: {len(self.actions)}')
 
-            for self.action in self.actions:
-                self.action_name, self.action_details = self.action
+            for self.action_ref in self.actions:
+                self.action_name, self.action_details = self.action_ref
                 if self.action_details['holding'] == 'No':
                     self.newActionReference = ActionReference(
                         self.action_details['action_id'], self.action_name, self.action_details['action_description'], 'location')
-                    self.action_list.append(self.newActionReference)
+                    self.action_reference_list.append(self.newActionReference)
 
                 self.logger.debug(f'Location actions {self.action_details['action_id']}, '
                                   f'{self.action_name}, {self.action_details['action_description']}, location')
@@ -71,10 +74,41 @@ class ActionListManager():
         Generates move actions for the Action List based on the possible moves of the current location.
         Each move action is added to the action list.
         """
-        for self.key, self.value in enumerate(self.location.location_possible_moves):
+        for self.key, self.move in self.location.location_possible_moves.items():
             self.newActionReference = ActionReference(
-                self.value.id, self.value.name, self.value.description, 'move_location')
-            self.action_list.append(self.newActionReference)
+                self.move.id, self.move.name, self.move.description, 'move_location')
+            self.action_reference_list.append(self.newActionReference)
 
-    def create_action_list(self) -> list[dict]:
-        pass
+    def create_action_reference_list(self):
+        """
+        Creates the action reference list for the current location and player.
+        The action reference list is a list of ActionReference objects that represent 
+        the actions available to the player at the current location.
+        Returns:
+            None
+        """
+        self._location_items_actions()
+        self._location_move_actions()
+
+    def _get_list_of_action_descriptions_by_type(self, action_type: str) -> list:
+        """
+        Returns a list of strings describing actions of a specific type available to the player at the current location.
+        Using the action_reference_list, the function extracts the action descriptions where the action type matches the given type.
+        """
+        actions = []
+        for action_ref in self.action_reference_list:
+            if action_ref.action_type == action_type:
+                actions.append(action_ref.description)
+        return actions
+
+    def get_list_of_location_action_descriptions(self) -> list:
+        """
+        Returns a list of strings describing available actions (excluding move actions) to the player at the current location.
+        """
+        return self._get_list_of_action_descriptions_by_type('location')
+
+    def get_list_of_move_action_descriptions(self) -> list:
+        """
+        Returns a list of strings describing available move actions to the player at the current location.
+        """
+        return self._get_list_of_action_descriptions_by_type('move_location')

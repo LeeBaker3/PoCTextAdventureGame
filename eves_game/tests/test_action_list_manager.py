@@ -21,11 +21,12 @@ class TestActionListManager(unittest.TestCase):
         self.item1 = Item(self.item_id, self.name,
                           self.description, self.actions)
         self.item4 = Item('4', '$10 Note', 'Some lovely Money',
-                          {'Pick Up': {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'}})
+                          {'Pick Up':
+                           {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'}})
 
         self.moves = {}
         self.moves['1'] = Move(
-            '1', 'Scratch exit', 'Leave the scratch through the entrance', '2')
+            '1', 'Move', 'Leave the scratch through the entrance', '2')
         self.item_ids = ['3', '4']
         self.location1 = Location('1', 'Scratch', 'Serves delightful dark beers. You can see some peanuts, the entrance door, and some comfy old seats',
                                   self.item_ids, self.moves)
@@ -68,7 +69,7 @@ class TestActionListManager(unittest.TestCase):
         self.action_reference4 = ActionReference(
             '4', 'Pick Up', 'You pick up a $10 note', 'location')
         self.action_reference5 = ActionReference(
-            '5', 'Move', 'Leave the scratch through the entrance', 'move')
+            '1', 'Move', 'Leave the scratch through the entrance', 'move_location')
 
         return super().setUpClass()
 
@@ -95,7 +96,7 @@ class TestActionListManager(unittest.TestCase):
         """
         self.action_list_manager._location_items_actions()
         self.assertEqual(vars(self.action_reference4), vars(
-            self.action_list_manager.action_list[1]))
+            self.action_list_manager.action_reference_list[0]))
 
     def test_location_move_actions(self) -> None:
         """
@@ -103,4 +104,20 @@ class TestActionListManager(unittest.TestCase):
         """
         self.action_list_manager._location_move_actions()
         self.assertEqual(vars(self.action_reference5), vars(
-            self.action_list_manager.action_list[1]))
+            self.action_list_manager.action_reference_list[1]))
+
+    def test_get_list_of_item_actions(self) -> None:
+        """
+        Test case for the get_list_of_item_actions method of the ActionListManager class.
+        """
+        self.action_list_manager.create_action_reference_list()
+        self.assertEqual(self.action_list_manager.get_list_of_location_action_descriptions(), [
+            'You pick up a $10 note'])
+
+    def test_get_list_of_move_actions(self) -> None:
+        """
+        Test case for the get_list_of_move_actions method of the ActionListManager class.
+        """
+        self.action_list_manager.create_action_reference_list()
+        self.assertEqual(self.action_list_manager.get_list_of_move_action_descriptions(), [
+                         'Leave the scratch through the entrance'])

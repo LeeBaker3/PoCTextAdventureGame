@@ -1,6 +1,7 @@
 import sys
 import logging
 import time
+from src.action_list_manager import ActionListManager
 import src.config as config
 from logging import Logger
 from src.player.player import Player
@@ -16,6 +17,13 @@ file_path = Path(__file__).parent
 
 
 def load_game_config() -> tuple[dict, dict]:
+    """
+    Loads the game configuration from the specified files and returns a tuple containing
+    the locations and items dictionaries.
+
+    Returns:
+        tuple[dict, dict]: A tuple containing the locations and items dictionaries.
+    """
     config_folder_path = file_path / config.game_config['game_config_folder']
     items_config_file = config_folder_path / config.game_config['items_config']
     locations_config_file = config_folder_path / \
@@ -204,11 +212,15 @@ def location_items_message(location: Location, items: dict, logger: Logger) -> N
 
 
 def user_items_message(player: Player, logger: Logger) -> None:
-    """_summary_
+    """
+    Prints a message indicating the items the player is currently carrying.
 
     Args:
-        player (Player): _description_
-        logger (Logger): _description_
+        player (Player): The player object.
+        logger (Logger): The logger object.
+
+    Returns:
+        None
     """
 
     item_list = ''
@@ -217,7 +229,7 @@ def user_items_message(player: Player, logger: Logger) -> None:
             item_list = item_list + '\n- ' + item.item_name
             item_message = f'You are currently carrying: {item_list}'
     else:
-        item_message = f'You not currently carrying any items'
+        item_message = f'You are not currently carrying any items'
     print(item_message)
 
 
@@ -342,10 +354,19 @@ def main():
         player_instructions = player_input(
             True, f'\nWhat would you like to do? : ')
         if player_input_exit(player_instructions) is False:
+            '''
             available_moves = [
                 move.description for move in current_location.location_possible_moves.values()]
             available_actions = create_available_actions(
                 location=current_location, player=player, items=items, logger=logger)
+            '''
+            # Using the ActionListManager class return create two variables
+            # available_moves and available_actions
+            action_list_manager = ActionListManager(
+                current_location, player, items, locations, logger)
+            action_list_manager.create_action_reference_list()
+            available_moves = action_list_manager.get_list_of_move_action_descriptions()
+            available_actions = action_list_manager.get_list_of_location_action_descriptions()
 
             user_action = determine_user_input(
                 available_actions=(available_actions + available_moves),
