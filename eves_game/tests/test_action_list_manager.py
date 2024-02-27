@@ -17,9 +17,12 @@ class TestActionListManager(unittest.TestCase):
         self.name = 'Rocket Fuel'
         self.description = '12% Imperial Stout'
         self.actions = {'Drink': {
-            'action_description': 'Sip the 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'}}
+            'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'}}
         self.item1 = Item(self.item_id, self.name,
                           self.description, self.actions)
+
+        _ = self.player.add_item(self.item1)
+
         self.item4 = Item('4', '$10 Note', 'Some lovely Money',
                           {'Pick Up':
                            {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'}})
@@ -94,7 +97,7 @@ class TestActionListManager(unittest.TestCase):
         """
         Test case for the _location_items_actions method of the ActionListManager class.
         """
-        self.action_list_manager._location_items_actions()
+        self.action_list_manager._location_actions()
         self.assertEqual(vars(self.action_reference4), vars(
             self.action_list_manager.action_reference_list[0]))
 
@@ -121,3 +124,15 @@ class TestActionListManager(unittest.TestCase):
         self.action_list_manager.create_action_reference_list()
         self.assertEqual(self.action_list_manager.get_list_of_move_action_descriptions(), [
                          'Leave the scratch through the entrance'])
+
+    def test_get_action_type_for_action_description(self) -> None:
+        """
+        Test case for the get_action_type_for_action_description method of the ActionListManager class.
+        """
+        self.action_list_manager.create_action_reference_list()
+        self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
+            'You pick up a $10 note'), 'location')
+        self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
+            'Leave the scratch through the entrance'), 'move_location')
+        self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
+            'Sip thr 12% Imperial Stout. It tastes wonderful'), 'player')

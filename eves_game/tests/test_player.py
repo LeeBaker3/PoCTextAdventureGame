@@ -1,6 +1,9 @@
 import unittest
 from src.player.player import Player
 from src.items.item import Item
+import unittest
+from src.player.player import Player
+from src.items.item import Item
 
 
 class TestPlayer(unittest.TestCase):
@@ -60,6 +63,18 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(3, len(self.player._player_items))
         self.player.remove_item(self.item1)
         self.assertEqual(2, len(self.player._player_items))
+
+    def test_player_can_add_items_to_the_list(self) -> None:
+        """_summary_
+        Test that a player can add items to the list
+        """
+        self.item1 = Item(1, 'test', 'test')
+        self.item2 = Item(2, 'test', 'test')
+        self.item3 = Item(3, 'test', 'test')
+        self.player.add_item(self.item1)
+        self.player.add_item(self.item2)
+        self.player.add_item(self.item3)
+        self.assertEqual(3, len(self.player._player_items))
 
 
 if __name__ == '__main__':

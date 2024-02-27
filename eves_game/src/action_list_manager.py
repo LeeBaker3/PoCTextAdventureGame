@@ -44,10 +44,23 @@ class ActionListManager:
         self.logger = logger
         self.action_reference_list = []
 
-    def get_action_type(self, action_description: str) -> str:
-        pass
+    def get_action_type_for_action_description(self, action_description: str) -> str:
+        """
+        Retrieves the action type based on the given action description.
 
-    def _location_items_actions(self) -> None:
+        Args:
+            action_description (str): The description of the action.
+
+        Returns:
+            str: The action type associated with the given action description.
+                 Returns an empty string if no matching action is found.
+        """
+        for action_ref in self.action_reference_list:
+            if action_ref.description == action_description:
+                return action_ref.action_type
+        return None
+
+    def _location_actions(self) -> None:
         """
         Retrieves the actions associated with the location items and adds them to the action list.
 
@@ -79,6 +92,21 @@ class ActionListManager:
                 self.move.id, self.move.name, self.move.description, 'move_location')
             self.action_reference_list.append(self.newActionReference)
 
+    def _player_actions(self) -> None:
+        """
+        Retrieves the actions associated with the player items and adds them to the action list.
+
+        Returns:
+            None
+        """
+        self.items = self.player.player_items
+        for self.item in self.items:
+            if self.item.actions:
+                for action_name, action_details in self.item.actions.items():
+                    new_action_reference = ActionReference(
+                        action_details['action_id'], action_name, action_details['action_description'], 'player')
+                    self.action_reference_list.append(new_action_reference)
+
     def create_action_reference_list(self):
         """
         Creates the action reference list for the current location and player.
@@ -87,8 +115,9 @@ class ActionListManager:
         Returns:
             None
         """
-        self._location_items_actions()
+        self._location_actions()
         self._location_move_actions()
+        self._player_actions()
 
     def _get_list_of_action_descriptions_by_type(self, action_type: str) -> list:
         """
@@ -112,3 +141,9 @@ class ActionListManager:
         Returns a list of strings describing available move actions to the player at the current location.
         """
         return self._get_list_of_action_descriptions_by_type('move_location')
+
+    def get_list_of_player_action_descriptions(self) -> list:
+        """
+        Returns a list of strings describing available player actions to the player at the current location.
+        """
+        return self._get_list_of_action_descriptions_by_type('player')

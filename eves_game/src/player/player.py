@@ -81,5 +81,6 @@ class Player():
         """
         return len(self._player_items)
 
+    @property
     def player_items(self) -> ItemList:
         return self._player_items
