@@ -119,7 +119,7 @@ class ActionListManager:
         self._location_move_actions()
         self._player_actions()
 
-    def _get_list_of_action_descriptions_by_type(self, action_type: str) -> list:
+    def get_list_of_action_descriptions_by_type(self, action_type: str) -> list:
         """
         Returns a list of strings describing actions of a specific type available to the player at the current location.
         Using the action_reference_list, the function extracts the action descriptions where the action type matches the given type.
@@ -134,16 +134,16 @@ class ActionListManager:
         """
         Returns a list of strings describing available actions (excluding move actions) to the player at the current location.
         """
-        return self._get_list_of_action_descriptions_by_type('location')
+        return self.get_list_of_action_descriptions_by_type('location')
 
     def get_list_of_move_action_descriptions(self) -> list:
         """
         Returns a list of strings describing available move actions to the player at the current location.
         """
-        return self._get_list_of_action_descriptions_by_type('move_location')
+        return self.get_list_of_action_descriptions_by_type('move_location')
 
     def get_list_of_player_action_descriptions(self) -> list:
         """
         Returns a list of strings describing available player actions to the player at the current location.
         """
-        return self._get_list_of_action_descriptions_by_type('player')
+        return self.get_list_of_action_descriptions_by_type('player')

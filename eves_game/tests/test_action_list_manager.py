@@ -107,7 +107,7 @@ class TestActionListManager(unittest.TestCase):
         """
         self.action_list_manager._location_move_actions()
         self.assertEqual(vars(self.action_reference5), vars(
-            self.action_list_manager.action_reference_list[1]))
+            self.action_list_manager.action_reference_list[0]))
 
     def test_get_list_of_item_actions(self) -> None:
         """
