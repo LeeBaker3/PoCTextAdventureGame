@@ -10,6 +10,7 @@ class TestActionListManager(unittest.TestCase):
 
     @classmethod
     def setUpClass(self) -> None:
+
         self.player_name = 'Bob'
         self.player = Player(self.player_name)
 
@@ -97,6 +98,7 @@ class TestActionListManager(unittest.TestCase):
         """
         Test case for the _location_items_actions method of the ActionListManager class.
         """
+        self.action_list_manager._clear_action_reference_list()
         self.action_list_manager._location_actions()
         self.assertEqual(vars(self.action_reference4), vars(
             self.action_list_manager.action_reference_list[0]))
@@ -105,14 +107,25 @@ class TestActionListManager(unittest.TestCase):
         """
         Test case for the _location_move_actions method of the ActionListManager class.
         """
+        self.action_list_manager._clear_action_reference_list()
         self.action_list_manager._location_move_actions()
         self.assertEqual(vars(self.action_reference5), vars(
+            self.action_list_manager.action_reference_list[0]))
+
+    def test_player_items_actions(self) -> None:
+        """
+        Test case for the _player_items_actions method of the ActionListManager class.
+        """
+        self.action_list_manager._clear_action_reference_list()
+        self.action_list_manager._player_actions()
+        self.assertEqual(vars(self.action_reference1), vars(
             self.action_list_manager.action_reference_list[0]))
 
     def test_get_list_of_item_actions(self) -> None:
         """
         Test case for the get_list_of_item_actions method of the ActionListManager class.
         """
+
         self.action_list_manager.create_action_reference_list()
         self.assertEqual(self.action_list_manager.get_list_of_location_action_descriptions(), [
             'You pick up a $10 note'])

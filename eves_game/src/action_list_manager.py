@@ -68,7 +68,7 @@ class ActionListManager:
             None
         """
         for self.item, (self.value) in enumerate(self.location.location_items):
-            self.actions = self.items[str(self.value)].actions.items()
+            self.actions = self.items[self.value].actions.items()
             self.logger.debug(f'Location actions for Action List for {self.items[str(self.value)].item_description}: '
                               f'{self.actions} total actions: {len(self.actions)}')
 
@@ -99,10 +99,10 @@ class ActionListManager:
         Returns:
             None
         """
-        self.items = self.player.player_items
-        for self.item in self.items:
-            if self.item.actions:
-                for action_name, action_details in self.item.actions.items():
+        self.player_items = self.player.player_items
+        for self.player_item in self.player_items:
+            if self.player_item.actions:
+                for action_name, action_details in self.player_item.actions.items():
                     new_action_reference = ActionReference(
                         action_details['action_id'], action_name, action_details['action_description'], 'player')
                     self.action_reference_list.append(new_action_reference)
@@ -115,6 +115,7 @@ class ActionListManager:
         Returns:
             None
         """
+        self._clear_action_reference_list()
         self._location_actions()
         self._location_move_actions()
         self._player_actions()
@@ -147,3 +148,10 @@ class ActionListManager:
         Returns a list of strings describing available player actions to the player at the current location.
         """
         return self.get_list_of_action_descriptions_by_type('player')
+
+    def _clear_action_reference_list(self) -> None:
+        """
+        Clears the action reference list.
+        """
+        self.action_reference_list.clear()
+        self.logger.debug('Action reference list cleared')

@@ -233,6 +233,7 @@ def user_items_message(player: Player, logger: Logger) -> None:
     print(item_message)
 
 
+'''
 def create_available_actions(location: Location, player: Player, items: List[Item], logger: Logger) -> list[str]:
     """_summary_
 
@@ -255,6 +256,7 @@ def create_available_actions(location: Location, player: Player, items: List[Ite
 
             logger.debug(f'Available actions {available_actions}')
     return available_actions
+'''
 
 
 def determine_user_input(available_actions: List[str], player_input: str, logger: Logger) -> str:

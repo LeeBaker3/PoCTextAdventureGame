@@ -1726,3 +1726,630 @@
 .
 2024-03-01 17:17:16 test_pickup setUp INFO Logger created
 .
+2024-03-06 14:12:24 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:12:24 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:12:24 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:12:24 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:12:24 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:12:25 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:12:27 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:12:27 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:12:27 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:12:27 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:12:27 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:12:28 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:12:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:12:28 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:12:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:12:28 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:12:30 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:12:30 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:12:30 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:12:30 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:12:30 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:14:01 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:14:02 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:14:02 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:14:02 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:14:02 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:14:14 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:17:47 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:17:47 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:17:47 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:17:47 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:18:26 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:18:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:18:26 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:18:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:18:26 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:18:47 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:18:47 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:18:47 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:18:47 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:18:47 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:18:48 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:18:50 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:18:50 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:18:50 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:18:50 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:18:50 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:18:51 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:18:51 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:18:51 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:18:51 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:18:51 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:18:56 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:18:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:18:56 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:18:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:18:56 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:19:41 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:19:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:19:41 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:19:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:19:41 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:20:39 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:20:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:20:41 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:20:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:20:41 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:21:47 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:21:51 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:21:51 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:21:51 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:21:51 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:40:02 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:40:02 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:40:02 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:40:02 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:40:02 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:40:03 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:40:03 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:40:04 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:40:04 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:40:04 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:40:04 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:40:04 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:40:04 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:40:05 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:40:05 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:40:05 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:40:05 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:40:05 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:40:05 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:40:08 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:40:08 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:40:08 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:40:08 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:40:08 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:40:08 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:40:08 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:40:08 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:42:01 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:42:01 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:42:01 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:42:01 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:42:01 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:42:01 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:42:01 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:42:01 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:42:09 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:42:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:42:28 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:42:34 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:42:34 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:43:04 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:43:09 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:43:42 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:44:07 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:44:14 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:44:41 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:44:52 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:44:52 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:44:57 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:44:57 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:45:17 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:45:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:45:28 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:45:32 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:45:32 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:46:18 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:46:18 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:46:18 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:24 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:47:24 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:47:24 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:47:24 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:47:24 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:47:24 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:24 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:24 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:40 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:47:40 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:47:40 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:47:40 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:47:40 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:47:41 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:47:41 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:47:41 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:47:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:47:41 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:47:42 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:47:42 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:42 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:47:42 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:47:42 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:47:42 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:47:50 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:47:53 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:47:53 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:47:54 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:47:54 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:47:54 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:55 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:47:59 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:48:08 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:48:13 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:48:13 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:48:17 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:48:17 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:48:57 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:49:04 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:49:04 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:49:04 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:49:04 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:49:04 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:49:04 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:49:04 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:49:04 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:50:11 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:50:11 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:50:11 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:50:11 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:50:11 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:50:11 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:50:11 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:50:11 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:50:11 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:53:34 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:53:36 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:53:36 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:53:37 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:53:37 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:53:37 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:53:38 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:53:39 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:53:42 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:54:52 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:54:54 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:54:54 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:54:55 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:54:55 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:54:55 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:54:55 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:54:56 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:55:01 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:55:38 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:55:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:55:41 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:55:41 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:55:41 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:55:41 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:55:42 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:55:42 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:55:53 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:56:15 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:56:15 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:56:15 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:56:15 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:56:15 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:56:15 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:56:17 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:56:17 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:56:17 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:56:17 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:56:17 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:56:17 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:56:18 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:56:18 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:56:18 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:56:18 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:56:18 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:56:18 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:56:20 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:56:22 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:56:22 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:56:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:56:23 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:56:23 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:56:23 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:56:24 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:56:56 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:10 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:59:10 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:10 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:10 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:10 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:49 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 14:59:49 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 14:59:49 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 14:59:49 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 14:59:49 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 14:59:49 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:49 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:49 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 14:59:49 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 15:02:23 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 15:02:23 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 15:02:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 15:02:23 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 15:02:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 15:02:23 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:29:28 test_action_factory setUpClass INFO Logger created
+.
+2024-03-06 17:29:28 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:29:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:29:28 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:29:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:29:28 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:29:28 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:29:28 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:29:28 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:29:28 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:29:28 test_move_location setUp INFO Logger created
+.
+2024-03-06 17:29:28 test_move_location _search_possible_moves DEBUG possible_moves: dict_items([('2', Move(id='2', name='Scratch exit to Patio', description='Leave the scratch through the entrance to the patio', destination_location_id='1'))])
+2024-03-06 17:29:28 test_move_location _search_possible_moves DEBUG result: ['2']
+2024-03-06 17:29:28 test_move_location action DEBUG key Value for new location: 2
+2024-03-06 17:29:28 test_pickup setUp INFO Logger created
+.
+2024-03-06 17:29:28 test_pickup setUp INFO Logger created
+.
+2024-03-06 17:29:28 test_pickup setUp INFO Logger created
+.
+2024-03-06 17:31:54 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:31:54 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:31:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:31:56 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:31:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:31:56 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:32:07 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:32:19 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:32:19 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:33:11 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:33:11 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:33:11 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:33:12 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:33:13 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:34:41 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:35:49 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:35:52 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:35:52 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:35:53 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:35:53 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:35:53 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:35:53 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:35:54 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:35:59 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:36:32 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:36:34 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:36:34 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:36:35 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:36:35 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:36:35 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:36:36 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:36:36 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:36:51 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:37:26 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:37:27 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:37:27 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:37:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:37:28 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:37:28 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:37:29 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:37:30 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:38:41 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:39:13 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:39:13 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:39:52 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:39:52 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:39:54 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:39:54 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:40:15 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:40:15 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:40:15 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:40:15 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:40:15 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:40:15 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:40:15 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:40:15 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:40:15 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:42:34 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:42:34 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:42:34 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:42:34 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:42:34 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:43:07 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:43:07 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:43:07 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:43:07 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:43:07 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:43:07 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:43:07 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:43:07 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:45:44 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:45:44 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:45:59 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:45:59 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:46:00 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:46:00 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:46:00 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:46:01 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:46:38 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:46:45 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:46:45 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:46:46 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:46:46 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:46:55 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:46:55 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:46:55 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:46:55 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:46:55 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:46:55 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:47:01 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:47:01 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:47:01 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:47:01 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:47:01 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:47:01 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:47:02 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:47:02 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:47:02 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:47:02 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:47:02 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:47:02 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:47:06 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:47:06 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:47:06 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:47:06 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:47:06 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:47:06 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:47:50 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-06 17:47:50 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:49:03 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-06 17:49:03 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-06 17:49:12 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-06 17:49:12 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-06 17:49:12 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-06 17:49:13 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:17:04 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:17:04 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:17:28 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:17:28 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:17:34 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:17:34 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:17:34 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:17:38 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:18:16 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:18:16 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:19:03 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:19:03 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:19:04 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:19:04 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:19:07 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:19:27 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:19:30 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:19:40 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:19:51 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:20:02 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:20:06 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:25:48 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:25:50 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:25:50 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:25:50 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:25:50 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:25:50 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:25:51 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:25:53 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:25:53 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:25:53 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:25:53 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:25:53 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:25:53 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:25:54 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:25:54 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:25:54 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:25:54 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:25:54 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:25:54 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:25:56 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:25:56 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:25:56 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:25:56 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:25:56 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:26:04 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:26:25 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:26:31 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:26:32 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:26:32 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:26:32 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:26:32 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:26:34 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:26:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:26:56 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:26:56 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:26:56 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:27:40 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:27:40 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:27:40 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:27:40 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:27:40 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:27:59 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:27:59 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:27:59 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:27:59 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:29:23 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:29:23 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:29:23 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:29:23 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:29:23 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:29:25 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:29:47 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:35:26 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:35:26 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:35:26 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:35:26 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:35:26 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:35:26 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:35:26 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:36:31 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:36:31 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:36:31 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:36:31 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:36:31 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for 12% Imperial Stout: dict_items([('Drink', {'action_description': 'Sip thr 12% Imperial Stout. It tastes wonderful', 'action_id': '3', 'holding': 'Yes'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 3, Drink, Sip thr 12% Imperial Stout. It tastes wonderful, location
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions for Action List for Some lovely Money: dict_items([('Pick Up', {'action_description': 'You pick up a $10 note', 'action_id': '4', 'holding': 'No'})]) total actions: 1
+2024-03-07 14:36:31 test_action_list_manager _location_actions DEBUG Location actions 4, Pick Up, You pick up a $10 note, location
+2024-03-07 14:36:31 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:36:31 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
+2024-03-07 14:36:34 test_action_list_manager setUpClass INFO Logger created
+.
+2024-03-07 14:36:34 test_action_list_manager _clear_action_reference_list DEBUG Action reference list cleared
