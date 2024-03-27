@@ -2,6 +2,7 @@ import sys
 import logging
 import time
 from src.action_list_manager import ActionListManager
+from src.action_factory import ActionFactory
 import src.config as config
 from logging import Logger
 from src.player.player import Player
@@ -301,10 +302,13 @@ def search_possible_moves(user_action: str, possible_moves: dict, logger: Logger
     return None
 
 
-def perform_action(action: str, current_location: Location, locations: dict, player: Player, logger: Logger) -> 'Location':
+def perform_action(user_action: str, action: str, current_location: Location, locations: dict, items: dict, item: Item, player: Player, logger: Logger) -> 'Location':
 
+    actionFactory = ActionFactory()
+    currentAction = actionFactory.create(
+        action, player, current_location, locations, item, logger, user_action)
     new_location_key = search_possible_moves(
-        user_action=action, possible_moves=current_location.location_possible_moves, logger=logger)
+        user_action=user_action, possible_moves=current_location.location_possible_moves, logger=logger)
 
     if new_location_key != None:
 
@@ -370,14 +374,18 @@ def main():
             available_moves = action_list_manager.get_list_of_move_action_descriptions()
             available_actions = action_list_manager.get_list_of_location_action_descriptions()
 
-            user_action = determine_user_input(
+            action_description = determine_user_input(
                 available_actions=(available_actions + available_moves),
                 player_input=player_instructions, logger=logger)
-
-            player_output(False, f"\nYou choose to: {user_action}")
+            item_id = action_list_manager.get_item_id_for_action_description(
+                action_description=action_description)
+            item = items[item_id]
+            action = action_list_manager.get_action_type_for_action_description(
+                action_description=action_description)
+            player_output(False, f"\nYou choose to: {action_description}")
 
             current_location = perform_action(
-                action=user_action, current_location=current_location, locations=locations,
+                user_action=action_description, action=action, current_location=current_location, locations=locations, items=items, item=item,
                 player=player, logger=logger)
             health = health - 1
         else:

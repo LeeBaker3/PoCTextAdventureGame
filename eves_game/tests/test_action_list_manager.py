@@ -65,15 +65,15 @@ class TestActionListManager(unittest.TestCase):
             self.location1, self.player, self.items, self.locations, self.logger)
 
         self.action_reference1 = ActionReference(
-            '3', 'Drink', 'Sip thr 12% Imperial Stout. It tastes wonderful', 'player')
+            '3', 'Drink', 'Sip thr 12% Imperial Stout. It tastes wonderful', 'Player')
         self.action_reference2 = ActionReference(
-            '0', 'Put Down', 'This is a test action1', 'player')
+            '0', 'Put Down', 'This is a test action1', 'Player')
         self.action_reference3 = ActionReference(
-            '1', 'Pickup', 'This is a test action2', 'location')
+            '1', 'Pickup', 'This is a test action2', 'Location')
         self.action_reference4 = ActionReference(
-            '4', 'Pick Up', 'You pick up a $10 note', 'location')
+            '4', 'Pick Up', 'You pick up a $10 note', 'Location')
         self.action_reference5 = ActionReference(
-            '1', 'Move', 'Leave the scratch through the entrance', 'move_location')
+            '1', 'Move', 'Leave the scratch through the entrance', 'MoveLocation')
 
         return super().setUpClass()
 
@@ -144,8 +144,20 @@ class TestActionListManager(unittest.TestCase):
         """
         self.action_list_manager.create_action_reference_list()
         self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
-            'You pick up a $10 note'), 'location')
+            'You pick up a $10 note'), 'Location')
         self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
-            'Leave the scratch through the entrance'), 'move_location')
+            'Leave the scratch through the entrance'), 'MoveLocation')
         self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
-            'Sip thr 12% Imperial Stout. It tastes wonderful'), 'player')
+            'Sip thr 12% Imperial Stout. It tastes wonderful'), 'Player')
+
+    def test_get_item_id_for_action_description(self) -> None:
+        """
+        Test case for the get_item_id_for_action_description method of the ActionListManager class.
+        """
+        self.action_list_manager.create_action_reference_list()
+        self.assertEqual(self.action_list_manager.get_item_id_for_action_description(
+            'You pick up a $10 note'), '4')
+        self.assertEqual(self.action_list_manager.get_item_id_for_action_description(
+            'Leave the scratch through the entrance'), '1')
+        self.assertEqual(self.action_list_manager.get_item_id_for_action_description(
+            'Sip thr 12% Imperial Stout. It tastes wonderful'), '3')
