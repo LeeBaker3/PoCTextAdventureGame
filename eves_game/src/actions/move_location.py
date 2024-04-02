@@ -8,7 +8,7 @@ class MoveLocation(Action):
         self.player = player
         self.location = location
         self.locations = locations
-        self.action_type = 'MoveLocation'
+        self.action_group = 'MoveLocation'
         self.logger = logger
         super().__init__()
 

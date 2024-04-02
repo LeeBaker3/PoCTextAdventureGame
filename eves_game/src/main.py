@@ -307,9 +307,14 @@ def perform_action(user_action: str, action: str, current_location: Location, lo
     actionFactory = ActionFactory()
     currentAction = actionFactory.create(
         action, player, current_location, locations, item, logger, user_action)
+    success, player_msg = currentAction.action()
+    if action == 'MoveLocation':
+        current_location = currentAction.location
+    """
     new_location_key = search_possible_moves(
         user_action=user_action, possible_moves=current_location.location_possible_moves, logger=logger)
-
+    
+    new_location_key = currentAction.perform()
     if new_location_key != None:
 
         logger.debug(f"key Value for new location: {new_location_key}")
@@ -319,6 +324,7 @@ def perform_action(user_action: str, action: str, current_location: Location, lo
             True, f"That doesn't match any of the possible actions")
         time.sleep(2)
     return current_location
+    """
 
 
 def main():
@@ -379,12 +385,15 @@ def main():
                 player_input=player_instructions, logger=logger)
             item_id = action_list_manager.get_item_id_for_action_description(
                 action_description=action_description)
-            item = items[item_id]
-            action = action_list_manager.get_action_type_for_action_description(
+            if item_id is not None:  # Fix: Added colon after "not"
+                item = items[item_id]
+            else:
+                item = None
+            action = action_list_manager.get_action_name_by_action_description(
                 action_description=action_description)
             player_output(False, f"\nYou choose to: {action_description}")
 
-            current_location = perform_action(
+            perform_action(
                 user_action=action_description, action=action, current_location=current_location, locations=locations, items=items, item=item,
                 player=player, logger=logger)
             health = health - 1

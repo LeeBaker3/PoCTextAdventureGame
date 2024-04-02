@@ -31,8 +31,8 @@ class ActionFactory(object):
             if isclass(_type) and issubclass(_type, actions.Action):
                 self.action_implementations[name] = _type
 
-    def create(self, action_type: str, player: 'Player', location: 'Location', locations: dict, item: 'Item', logger: 'Logger', selected_action: str) -> object:
-        if action_type in self.action_implementations:
-            return self.action_implementations[action_type](selected_action, player, location, locations, item, logger)
+    def create(self, action_name: str, player: 'Player', location: 'Location', locations: dict, item: 'Item', logger: 'Logger', selected_action: str) -> object:
+        if action_name in self.action_implementations:
+            return self.action_implementations[action_name](selected_action, player, location, locations, item, logger)
         else:
-            raise ValueError(f'{action_type} is not currently implemented')
+            raise ValueError(f'{action_name} is not currently implemented')

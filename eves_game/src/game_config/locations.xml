@@ -9,11 +9,11 @@
     </items>
     <moves>
       <move move_id="0" destination_location_id="1">
-        <name>Bedroom to living room</name>
+        <name>MoveLocation</name>
         <description>Go through the bedroom door to the living room</description>
       </move>
       <move move_id="1" destination_location_id="4">
-        <name>Bedroom to balcony</name>
+        <name>MoveLocation</name>
         <description>Go through the balcony door to the balcony</description>
       </move>
     </moves>
@@ -28,11 +28,11 @@
     </items>
     <moves>
       <move move_id="2" destination_location_id="0">
-        <name>Living Room to bedroom</name>
+        <name>MoveLocation</name>
         <description>Go through your bedroom door into your bedroom</description>
       </move>
       <move move_id="3" destination_location_id="2">
-        <name>Living Room to bathroom</name>
+        <name>MoveLocation</name>
         <description>Go through bathroom door into the bathroom</description>
       </move>
     </moves>
@@ -45,7 +45,7 @@
     </items>
     <moves>
       <move move_id="4" destination_location_id="1">
-        <name>Bathroom to living room</name>
+        <name>MoveLocation</name>
         <description>Go through the bathroom door to the living room</description>
       </move>
     </moves>

@@ -4,6 +4,12 @@ from src.action_list_manager import ActionListManager, ActionReference
 from src.player.player import Player
 from src.locations.location import Location, Move
 from src.items.item import Item
+import unittest
+from unittest.mock import MagicMock
+from src.action_list_manager import ActionListManager, ActionReference
+from src.player.player import Player
+from src.locations.location import Location, Move
+from src.items.item import Item
 
 
 class TestActionListManager(unittest.TestCase):
@@ -30,7 +36,7 @@ class TestActionListManager(unittest.TestCase):
 
         self.moves = {}
         self.moves['1'] = Move(
-            '1', 'Move', 'Leave the scratch through the entrance', '2')
+            '1', 'MoveLocation', 'Leave the scratch through the entrance', '2')
         self.item_ids = ['3', '4']
         self.location1 = Location('1', 'Scratch', 'Serves delightful dark beers. You can see some peanuts, the entrance door, and some comfy old seats',
                                   self.item_ids, self.moves)
@@ -73,7 +79,7 @@ class TestActionListManager(unittest.TestCase):
         self.action_reference4 = ActionReference(
             '4', 'Pick Up', 'You pick up a $10 note', 'Location')
         self.action_reference5 = ActionReference(
-            '1', 'Move', 'Leave the scratch through the entrance', 'MoveLocation')
+            '1', 'MoveLocation', 'Leave the scratch through the entrance', 'MoveLocation')
 
         return super().setUpClass()
 
@@ -138,16 +144,16 @@ class TestActionListManager(unittest.TestCase):
         self.assertEqual(self.action_list_manager.get_list_of_move_action_descriptions(), [
                          'Leave the scratch through the entrance'])
 
-    def test_get_action_type_for_action_description(self) -> None:
+    def test_get_action_group_for_action_description(self) -> None:
         """
-        Test case for the get_action_type_for_action_description method of the ActionListManager class.
+        Test case for the get_action_group_for_action_description method of the ActionListManager class.
         """
         self.action_list_manager.create_action_reference_list()
-        self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
+        self.assertEqual(self.action_list_manager.get_action_group_for_action_description(
             'You pick up a $10 note'), 'Location')
-        self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
+        self.assertEqual(self.action_list_manager.get_action_group_for_action_description(
             'Leave the scratch through the entrance'), 'MoveLocation')
-        self.assertEqual(self.action_list_manager.get_action_type_for_action_description(
+        self.assertEqual(self.action_list_manager.get_action_group_for_action_description(
             'Sip thr 12% Imperial Stout. It tastes wonderful'), 'Player')
 
     def test_get_item_id_for_action_description(self) -> None:
@@ -161,3 +167,15 @@ class TestActionListManager(unittest.TestCase):
             'Leave the scratch through the entrance'), '1')
         self.assertEqual(self.action_list_manager.get_item_id_for_action_description(
             'Sip thr 12% Imperial Stout. It tastes wonderful'), '3')
+
+    def test_get_action_name_by_action_description(self) -> None:
+        """
+        Test case for the get_action_name_by_action_description method of the ActionListManager class
+        """
+        self.action_list_manager.create_action_reference_list()
+        self.assertEqual(self.action_list_manager.get_action_name_by_action_description(
+            'You pick up a $10 note'), 'Pick Up')
+        self.assertEqual(self.action_list_manager.get_action_name_by_action_description(
+            'Leave the scratch through the entrance'), 'MoveLocation')
+        self.assertEqual(self.action_list_manager.get_action_name_by_action_description(
+            'Sip thr 12% Imperial Stout. It tastes wonderful'), 'Drink')

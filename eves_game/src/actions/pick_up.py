@@ -8,7 +8,7 @@ class PickUp(Action):
         self.player = player
         self.location = location
         self.item = item
-        self.action_type = 'Location'
+        self.action_group = 'Location'
         super().__init__()
 
     def action(self) -> (bool, str):

@@ -8,16 +8,16 @@ class Action(ABC):
         pass
 
     @property
-    def action_type(self) -> str:
-        return self._action_type
+    def action_group(self) -> str:
+        return self._action_group
 
-    @action_type.setter
-    def action_type(self, value: str) -> None:
-        if value in self.actions:
-            self._action_type = value
+    @action_group.setter
+    def action_group(self, value: str) -> None:
+        if value in self.action_groups:
+            self._action_group = value
         else:
-            raise ValueError(f"This isn't a support action type {value}.")
+            raise ValueError(f"This isn't a support action group {value}.")
 
     @property
-    def actions(cls) -> list[str]:
+    def action_groups(cls) -> list[str]:
         return ['Player', 'Location', 'MoveLocation']
