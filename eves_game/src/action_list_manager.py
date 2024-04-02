@@ -14,14 +14,15 @@ class ActionReference:
         action_group (str): The type of the action i.e. location, player, move.
         actionID (str): The unique identifier of the action as a string.
     """
-    id: str = field(repr=True)
+    action_id: str = field(repr=True)
+    item_id: str = field(repr=True)
     name: str = field(repr=True)
     description: str = field(repr=True)
     action_group: str = field(repr=True)
-    actionID: str = field(default=str(uuid.uuid4()))
+    actionUniqueID: str = field(default=str(uuid.uuid4()))
 
     def __str__(self) -> str:
-        return f'ActionReference: {self.id}, {self.name}, {self.description}, {self.action_group}'
+        return f'ActionReference: {self.action_id}, {self.name}, {self.description}, {self.action_group}'
 
 
 class ActionListManager:
@@ -67,16 +68,16 @@ class ActionListManager:
         Returns:
             None
         """
-        for self.item, (self.value) in enumerate(self.location.location_items):
-            self.actions = self.items[self.value].actions.items()
-            self.logger.debug(f'Location actions for Action List for {self.items[str(self.value)].item_description}: '
+        for self.item, (self.item_id) in enumerate(self.location.location_items):
+            self.actions = self.items[self.item_id].actions.items()
+            self.logger.debug(f'Location actions for Action List for {self.items[str(self.item_id)].item_description}: '
                               f'{self.actions} total actions: {len(self.actions)}')
 
             for self.action_ref in self.actions:
                 self.action_name, self.action_details = self.action_ref
                 if self.action_details['holding'] == 'No':
                     self.newActionReference = ActionReference(
-                        self.action_details['action_id'], self.action_name, self.action_details['action_description'], 'Location')
+                        self.action_details['action_id'], self.item_id, self.action_name, self.action_details['action_description'], 'Location')
                     self.action_reference_list.append(self.newActionReference)
 
                 self.logger.debug(f'Location actions {self.action_details['action_id']}, '
@@ -89,7 +90,7 @@ class ActionListManager:
         """
         for self.key, self.move in self.location.location_possible_moves.items():
             self.newActionReference = ActionReference(
-                self.move.id, self.move.name, self.move.description, 'MoveLocation')
+                self.move.id, None, self.move.name, self.move.description, 'MoveLocation')
             self.action_reference_list.append(self.newActionReference)
 
     def _player_actions(self) -> None:
@@ -104,7 +105,7 @@ class ActionListManager:
             if self.player_item.actions:
                 for action_name, action_details in self.player_item.actions.items():
                     new_action_reference = ActionReference(
-                        action_details['action_id'], action_name, action_details['action_description'], 'Player')
+                        action_details['action_id'], self.player_item.item_id, action_name, action_details['action_description'], 'Player')
                     self.action_reference_list.append(new_action_reference)
 
     def create_action_reference_list(self):
@@ -171,5 +172,5 @@ class ActionListManager:
         """
         for action_ref in self.action_reference_list:
             if action_ref.description == action_description:
-                return action_ref.id
+                return action_ref.item_id
         return None

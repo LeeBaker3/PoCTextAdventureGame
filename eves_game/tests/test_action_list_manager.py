@@ -71,15 +71,15 @@ class TestActionListManager(unittest.TestCase):
             self.location1, self.player, self.items, self.locations, self.logger)
 
         self.action_reference1 = ActionReference(
-            '3', 'Drink', 'Sip thr 12% Imperial Stout. It tastes wonderful', 'Player')
+            '3', '3', 'Drink', 'Sip thr 12% Imperial Stout. It tastes wonderful', 'Player')
         self.action_reference2 = ActionReference(
-            '0', 'Put Down', 'This is a test action1', 'Player')
+            '3', '0', 'Put Down', 'This is a test action1', 'Player')
         self.action_reference3 = ActionReference(
-            '1', 'Pickup', 'This is a test action2', 'Location')
+            '3', '1', 'Pickup', 'This is a test action2', 'Location')
         self.action_reference4 = ActionReference(
-            '4', 'Pick Up', 'You pick up a $10 note', 'Location')
+            '4', '4', 'Pick Up', 'You pick up a $10 note', 'Location')
         self.action_reference5 = ActionReference(
-            '1', 'MoveLocation', 'Leave the scratch through the entrance', 'MoveLocation')
+            '1', None, 'MoveLocation', 'Leave the scratch through the entrance', 'MoveLocation')
 
         return super().setUpClass()
 
@@ -164,7 +164,7 @@ class TestActionListManager(unittest.TestCase):
         self.assertEqual(self.action_list_manager.get_item_id_for_action_description(
             'You pick up a $10 note'), '4')
         self.assertEqual(self.action_list_manager.get_item_id_for_action_description(
-            'Leave the scratch through the entrance'), '1')
+            'Leave the scratch through the entrance'), None)
         self.assertEqual(self.action_list_manager.get_item_id_for_action_description(
             'Sip thr 12% Imperial Stout. It tastes wonderful'), '3')
 

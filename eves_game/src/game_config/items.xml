@@ -27,5 +27,19 @@
   <item item_id="2">
     <item_name>Gold Shoes</item_name>
     <item_description>A pair of Gold Ralph Lauren ankle sneekers</item_description>
+    <item_actions>
+      <action action_id="4" holding="No">
+        <action_name>PickUp</action_name>
+        <action_description>Pick up the Gold Ralph Lauren ankle sneekers</action_description>
+      </action>
+      <action action_id="5" holding="Yes">
+        <action_name>PutDown</action_name>
+        <action_description>Put down the Gold Ralph Lauren ankle sneekers</action_description>
+      </action>
+      <action action_id="6" holding="Yes">
+        <action_name>Wear</action_name>
+        <action_description>Wear the Gold Ralph Lauren ankle sneekers</action_description>
+      </action>
+    </item_actions>
   </item>
 </items>
