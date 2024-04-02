@@ -3,14 +3,16 @@ from src.actions.action import Action
 
 class MoveLocation(Action):
 
-    def __init__(self, selected_action: str, player: 'Player', location: 'Location', locations: dict, item: 'Item', logger: 'Logger') -> None:
+    def __init__(self, selected_action: str, player: 'Player', location: 'Location', locations: dict, item: 'Item', items: dict, logger: 'Logger') -> None:
         self.selected_action = selected_action
-        self.player = player
-        self.location = location
-        self.locations = locations
+        # self.player = player
+        # self.location = location
+        # self.locations = locations
+        # self.item = item
+        # self.items = items
         self.action_group = 'MoveLocation'
         self.logger = logger
-        super().__init__()
+        super().__init__(player, location, locations, item, items)
 
     def _search_possible_moves(self) -> str:
         self.possible_moves = self.location.location_possible_moves

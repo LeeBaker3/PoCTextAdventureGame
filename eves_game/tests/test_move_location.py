@@ -44,6 +44,7 @@ class TestMove(unittest.TestCase):
         # Setup Item
         self.item1 = Item('2', 'Test Item 2', 'This is a test item 2', {
                           'Pick Up': {'action_description': 'This is a test action2', 'holding': 'No'}})
+        self.items = {self.item1.item_id: self.item1}
 
         self.logger = logging.getLogger(__name__)
         self.logger.setLevel('DEBUG')
@@ -55,7 +56,7 @@ class TestMove(unittest.TestCase):
         self.logger.info("Logger created\n.")
 
         self.move = MoveLocation('Leave the scratch through the entrance to the patio', self.player, self.current_location, self.locations,
-                                 self.item1, self.logger)
+                                 self.item1, self.items, self.logger)
         return super().setUp()
 
     def test_move_action_successful(self) -> None:

@@ -234,32 +234,6 @@ def user_items_message(player: Player, logger: Logger) -> None:
     print(item_message)
 
 
-'''
-def create_available_actions(location: Location, player: Player, items: List[Item], logger: Logger) -> list[str]:
-    """_summary_
-
-    Returns:
-        _type_: _description_
-    """
-    available_actions = []
-
-    for item, (value) in enumerate(location.location_items):
-        actions = items[str(value)].actions.items()
-        logger.debug(f'Action list for {items[str(value)].item_description}: '
-                     f'{actions} total actions: {len(actions)}')
-
-        for action in actions:
-            _, action_details = action
-            if action_details['holding'] == 'No':
-                available_actions.append(action_details['action_description'])
-            else:
-                pass
-
-            logger.debug(f'Available actions {available_actions}')
-    return available_actions
-'''
-
-
 def determine_user_input(available_actions: List[str], player_input: str, logger: Logger) -> str:
     """Function to interact with ChatGPT and determine the move
 
@@ -306,25 +280,13 @@ def perform_action(user_action: str, action: str, current_location: Location, lo
 
     actionFactory = ActionFactory()
     currentAction = actionFactory.create(
-        action, player, current_location, locations, item, logger, user_action)
+        action, player, current_location, locations, item, items, logger, user_action)
     success, player_msg = currentAction.action()
-    if action == 'MoveLocation':
-        current_location = currentAction.location
-    """
-    new_location_key = search_possible_moves(
-        user_action=user_action, possible_moves=current_location.location_possible_moves, logger=logger)
-    
-    new_location_key = currentAction.perform()
-    if new_location_key != None:
+    if success == True:
+        return player_msg, *currentAction.return_game_state()
 
-        logger.debug(f"key Value for new location: {new_location_key}")
-        current_location = locations[new_location_key[0]]
     else:
-        player_output(
-            True, f"That doesn't match any of the possible actions")
-        time.sleep(2)
-    return current_location
-    """
+        return player_msg, current_location, locations, items, item, player
 
 
 def main():
@@ -366,14 +328,7 @@ def main():
         player_instructions = player_input(
             True, f'\nWhat would you like to do? : ')
         if player_input_exit(player_instructions) is False:
-            '''
-            available_moves = [
-                move.description for move in current_location.location_possible_moves.values()]
-            available_actions = create_available_actions(
-                location=current_location, player=player, items=items, logger=logger)
-            '''
-            # Using the ActionListManager class return create two variables
-            # available_moves and available_actions
+
             action_list_manager = ActionListManager(
                 current_location, player, items, locations, logger)
             action_list_manager.create_action_reference_list()
@@ -393,9 +348,12 @@ def main():
                 action_description=action_description)
             player_output(False, f"\nYou choose to: {action_description}")
 
-            perform_action(
+            player_msg, player, current_location, locations, item, items = perform_action(
                 user_action=action_description, action=action, current_location=current_location, locations=locations, items=items, item=item,
                 player=player, logger=logger)
+
+            player_output(True, player_msg)
+
             health = health - 1
         else:
             health = 0

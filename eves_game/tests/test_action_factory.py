@@ -20,6 +20,7 @@ class TestActionFactory(unittest.TestCase):
         self.actions = {'Drink': 'Tastes wonderful'}
         self.item = Item(self.item_id, self.name,
                          self.description, self.actions)
+        self.items = {self.item.item_id, self.item}
 
         self.moves = {'1', 'Leave the scratch through the entrance'}
         self.item_ids = ['1']
@@ -42,10 +43,10 @@ class TestActionFactory(unittest.TestCase):
 
     def test_create_pick_up_action(self) -> None:
         self.pick_up = self.actionFactory.create(
-            'PickUp', self.player, self.location, self.locations, self.item, self.logger, 'Pickup test item 1')
+            'PickUp', self.player, self.location, self.locations, self.item, self.items, self.logger, 'Pickup test item 1')
         self.assertIsInstance(self.pick_up, pick_up.PickUp)
 
     def test_create_move_action(self) -> None:
         self.move = self.actionFactory.create(
-            'MoveLocation', self.player, self.location, self.locations, self.item, self.logger, 'Leave the scratch through the entrance')
+            'MoveLocation', self.player, self.location, self.locations, self.item, self.items, self.logger, 'Leave the scratch through the entrance')
         self.assertIsInstance(self.move, move_location.MoveLocation)
