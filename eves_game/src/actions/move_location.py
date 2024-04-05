@@ -1,4 +1,9 @@
+from logging import Logger
+from typing import Tuple
 from src.actions.action import Action
+from src.items.item import Item
+from src.locations.location import Location
+from src.player.player import Player
 
 
 class MoveLocation(Action):
@@ -24,7 +29,7 @@ class MoveLocation(Action):
             return result[0]
         return None
 
-    def action(self) -> (bool, str):
+    def action(self) -> Tuple[bool, str]:
 
         new_location_key = self._search_possible_moves()
 

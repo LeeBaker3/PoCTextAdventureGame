@@ -72,6 +72,30 @@ class TestMove(unittest.TestCase):
         self.assertEqual(self.test_msg, self.action_return_msg)
         self.assertEqual('2', self.move.location.location_id)
 
+    def test_return_game_state(self) -> None:
+        """
+        Test that the Move object returns the expected game state.
+
+        This test verifies that the Move object returns the expected game state
+        after the player has moved to a different location.
+        """
+
+        self.test_msg = f"You have moved to {self.location_2_description}"
+        self.success, self.action_return_msg = self.move.action()
+        # Test player object
+        self.assertEqual(self.player, self.move.return_game_state()[0])
+
+        # Test location object
+        self.assertEqual(
+            self.location_2, self.move.return_game_state()[1])
+
+        # Test locations dictionary
+        self.assertEqual(
+            self.locations, self.move.return_game_state()[2])
+
+        # Test items dictionary
+        self.assertEqual(self.items, self.move.return_game_state()[4])
+
 
 if __name__ == '__main__':
     unittest.main()

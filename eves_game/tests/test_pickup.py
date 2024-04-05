@@ -30,8 +30,8 @@ class TestPickUp(unittest.TestCase):
         # Setup Item
         self.item1 = Item('2', 'Test Item 2', 'This is a test item 2', {
                           'Pick Up': {'action_description': 'This is a test action2', 'holding': 'No'}})
-        
-        self.items{self.item1.item_id: self.item1}
+
+        self.items = {self.item1.item_id: self.item1}
 
         # Setup Logger
         self.logger = logging.getLogger(__name__)
@@ -70,6 +70,28 @@ class TestPickUp(unittest.TestCase):
         self.assertFalse(self.success)
         self.assertEqual(self.test_msg, self.action_return_msg)
         self.assertEqual(2, self.location.items_length)
+
+    def test_return_game_state(self) -> None:
+        """_summary_
+        Test that the PickUp object returns the correct game state after the action is executed
+        """
+        self.success, self.action_return_msg = self.pickUp.action()
+        self.assertTrue(self.success)
+
+        player_state = self.pickUp.return_game_state()[0]
+        self.assertEqual(self.player, player_state)
+
+        location_state = self.pickUp.return_game_state()[1]
+        self.assertEqual(self.location, location_state)
+
+        locations_state = self.pickUp.return_game_state()[2]
+        self.assertEqual(self.locations, locations_state)
+
+        item_state = self.pickUp.return_game_state()[3]
+        self.assertEqual(self.item1, item_state)
+
+        items_state = self.pickUp.return_game_state()[4]
+        self.assertEqual(self.items, items_state)
 
 
 if __name__ == '__main__':

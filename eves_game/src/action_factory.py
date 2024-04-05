@@ -1,5 +1,9 @@
 from inspect import getmembers, isclass, isabstract
+from logging import Logger
 import src.actions as actions
+from src.items.item import Item
+from src.locations.location import Location
+from src.player.player import Player
 
 
 class ActionFactory(object):
