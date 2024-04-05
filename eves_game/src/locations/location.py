@@ -54,19 +54,27 @@ class LoadLocations:
     """
 
     def __init__(self, locations: dict, file_path: str):
-        """_summary_
+        """Initialize a Location object.
 
         Args:
-            locations (_type_): _description_
-            file_path (_type_): _description_
+            locations (dict): A dictionary containing information about different locations.
+            file_path (str): The file path of the location.
+
         """
         self.locations = locations
         self.file_path = file_path
 
     def load(self):
-        """_summary_
         """
+        Load the location data from the XML file.
 
+        This method parses the XML file specified by `file_path` and extracts the location information.
+        It populates the `tree` and `root` attributes with the parsed XML data.
+        It also initializes other attributes such as `locationLen`, `location_id`, `location_name`, `location_description`, `items`, `moves`, `item_ids`, and `destination_location_ids` based on the parsed data.
+
+        Returns:
+            None
+        """
         self.tree = ET.parse(self.file_path)
         self.root = self.tree.getroot()
 
@@ -92,7 +100,6 @@ class LoadLocations:
                 for self.move in self.moves:
                     self.destination_location_ids[self.move.get(
                         'destination_location_id')] = Move(self.move.get('move_id'), self.move.find('name').text, self.move.find('description').text, self.move.get('destination_location_id'))
-            #            'destination_location_id')] = self.move.text
 
             self.newLocation = Location(
                 id=self.location_id, name=self.location_name, description=self.location_description, items=self.item_ids, possible_moves=self.destination_location_ids)
