@@ -334,6 +334,8 @@ def main():
             action_list_manager.create_action_reference_list()
             available_moves = action_list_manager.get_list_of_move_action_descriptions()
             available_actions = action_list_manager.get_list_of_location_action_descriptions()
+            available_actions.extend(
+                action_list_manager.get_list_of_player_action_descriptions())
 
             action_description = determine_user_input(
                 available_actions=(available_actions + available_moves),

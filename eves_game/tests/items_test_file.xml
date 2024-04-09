@@ -5,8 +5,12 @@
     <item_description>This is a test item 1</item_description>
     <item_actions>
       <action action_id="0" holding="Yes">
-        <action_name>Put Down</action_name>
+        <action_name>Pick Up</action_name>
         <action_description>This is a test action1</action_description>
+      </action>
+      <action action_id="3" holding="Yes">
+        <action_name>Put Down</action_name>
+        <action_description>This is a test action3</action_description>
       </action>
     </item_actions>
   </item>

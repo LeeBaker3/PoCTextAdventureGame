@@ -21,6 +21,21 @@ class ItemList(list):
             raise Exception(
                 "Can't have more than {} items".format(self.max_list_length))
 
+    def remove(self, item: 'Item') -> bool:
+        """_summary_
+
+        Args:
+            item (Item): _description_
+
+        Returns:
+            bool: _description_
+        """
+        try:
+            super().remove(item)
+        except ValueError:
+            return False
+        return True
+
     @ property
     def max_list_length(self):
         """_summary_
