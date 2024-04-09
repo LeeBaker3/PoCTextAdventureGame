@@ -67,3 +67,25 @@ class TestPutDown(unittest.TestCase):
         self.assertEqual(self.test_msg, self.action_return_msg)
         self.assertEqual(2, self.location.items_length)
         self.assertEqual(0, len(self.player.player_items))
+
+    def test_return_game_state(self) -> None:
+        """_summary_
+        Test that the PickUp object returns the correct game state after the action is executed
+        """
+        self.success, self.action_return_msg = self.putDown.action()
+        self.assertTrue(self.success)
+
+        player_state = self.putDown.return_game_state()[0]
+        self.assertEqual(self.player, player_state)
+
+        location_state = self.putDown.return_game_state()[1]
+        self.assertEqual(self.location, location_state)
+
+        locations_state = self.putDown.return_game_state()[2]
+        self.assertEqual(self.locations, locations_state)
+
+        item_state = self.putDown.return_game_state()[3]
+        self.assertEqual(self.item1, item_state)
+
+        items_state = self.putDown.return_game_state()[4]
+        self.assertEqual(self.items, items_state)

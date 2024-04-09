@@ -4,7 +4,7 @@
     <item_name>Test Item 1</item_name>
     <item_description>This is a test item 1</item_description>
     <item_actions>
-      <action action_id="0" holding="Yes">
+      <action action_id="0" holding="No">
         <action_name>Pick Up</action_name>
         <action_description>This is a test action1</action_description>
       </action>
