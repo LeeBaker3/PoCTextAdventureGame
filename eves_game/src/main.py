@@ -13,6 +13,7 @@ from src.item_list import ItemList
 from openai import OpenAI
 from pathlib import Path
 from typing import List
+import sys
 
 file_path = Path(__file__).parent
 
@@ -84,7 +85,17 @@ def player_output(bold: bool, msg: str) -> None:
     """
     if bold == True:
         msg = bold_string(msg)
-    print(msg)
+
+    user_interface_mode = config.interface['user_interface']
+    user_interface_debug_mode = config.interface['debug_mode']
+    user_input = None
+
+    if user_interface_mode == 'cli':
+        print(msg)
+    else:
+        print(msg)
+        if user_interface_debug_mode == True:
+            player_interface_debug_mode(msg, 'player_output')
 
 
 def player_input(bold: bool, msg: str) -> str:
@@ -100,7 +111,23 @@ def player_input(bold: bool, msg: str) -> str:
     """
     if bold == True:
         msg = bold_string(msg)
-    return input(msg)
+
+    user_interface_mode = config.interface['user_interface']
+    user_interface_debug_mode = config.interface['debug_mode']
+    user_input = None
+
+    if user_interface_mode == 'cli':
+        user_input = input(msg)
+    else:
+        user_input = input(msg)
+        if user_interface_debug_mode == True:
+            player_interface_debug_mode(msg, 'player_output')
+            player_interface_debug_mode(user_input, 'player_input')
+    return user_input
+
+
+def player_interface_debug_mode(msg: str, msg_type: str) -> None:
+    print(f'msg_type: {msg_type} msg: {msg}')
 
 
 def create_logger() -> Logger:

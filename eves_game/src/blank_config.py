@@ -16,4 +16,5 @@ game_config = dict(
 
 interface = dict(
     user_interface='cli',
+    debug_mode=True,
 )
