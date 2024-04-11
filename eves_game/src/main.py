@@ -140,7 +140,7 @@ def player_input_exit(user_input: str) -> bool:
     return False
 
 
-def moves_message(location: Location, logger: Logger) -> None:
+def create_moves_message(location: Location, logger: Logger) -> str:
     '''Summary or Description of the Function
     This function take a Location object and generates a message
     describing the number of available moves in the  location and
@@ -174,10 +174,10 @@ def moves_message(location: Location, logger: Logger) -> None:
         move_message = 'There are {0} possible moves. . ' + move_list
     else:
         move_message = 'There is {0} possible move. . ' + move_list
-    print(move_message.format(moves_len))
+    return move_message.format(moves_len)
 
 
-def location_items_message(location: Location, items: dict, logger: Logger) -> None:
+def create_location_items_message(location: Location, items: dict, logger: Logger) -> str:
     '''Summary or Description of the Function
     This function take a Location object and generates a message
     describing the number of available items in the location and what
@@ -209,10 +209,10 @@ def location_items_message(location: Location, items: dict, logger: Logger) -> N
         items_message = 'There is {0} item here. ' + item_list
     else:
         items_message = 'There are {0} items here. ' + item_list
-    print(items_message.format(items_len))
+    return items_message.format(items_len)
 
 
-def user_items_message(player: Player, logger: Logger) -> None:
+def create_user_items_message(player: Player, logger: Logger) -> str:
     """
     Prints a message indicating the items the player is currently carrying.
 
@@ -231,7 +231,7 @@ def user_items_message(player: Player, logger: Logger) -> None:
             item_message = f'You are currently carrying: {item_list}'
     else:
         item_message = f'You are not currently carrying any items'
-    print(item_message)
+    return item_message
 
 
 def determine_user_input(available_actions: List[str], player_input: str, logger: Logger) -> str:
@@ -319,11 +319,17 @@ def main():
 
     while health > 0:
 
-        print(current_location.location_description)
-        moves_message(location=current_location, logger=logger)
-        location_items_message(location=current_location,
-                               items=items, logger=logger)
-        user_items_message(player=player, logger=logger)
+        current_location_description = current_location.location_description
+        player_output(False, current_location_description)
+        move_message = create_moves_message(
+            location=current_location, logger=logger)
+        player_output(False, move_message)
+        location_message = create_location_items_message(location=current_location,
+                                                         items=items, logger=logger)
+        player_output(False, location_message)
+        user_items_message = create_user_items_message(
+            player=player, logger=logger)
+        player_output(False, user_items_message)
 
         player_instructions = player_input(
             True, f'\nWhat would you like to do? : ')

@@ -13,3 +13,7 @@ game_config = dict(
     locations_config='locations.xml',
 
 )
+
+interface = dict(
+    user_interface='cli',
+)
