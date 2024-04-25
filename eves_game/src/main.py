@@ -67,7 +67,10 @@ def bold_string(msg: str) -> str:
     """
     start = '\033[1m'  # Bold text
     end = '\033[0;0m'  # Normal text
-    return f'{start}{msg}{end}'
+    if config.interface['user_interface'] == 'cli':
+        return f'{start}{msg}{end}'
+    elif config.interface['user_interface'] == 'web':
+        return f'<b>{msg}</b>'
 
 
 def player_output(bold: bool, msg: str) -> None:
@@ -323,10 +326,11 @@ def main():
     locations, items = load_game_config()
 
     welcome_msg = 'Welcome to your greatest adventure.'
-    player_output(False, welcome_msg)
 
     player_name_msg = 'What is your name adventurer? : '
-    player_name = player_input(True, player_name_msg)
+    player_name_msg = bold_string(player_name_msg)
+    msg = f'{welcome_msg}\n{player_name_msg}'
+    player_name = player_input(False, msg)
 
     player = Player(player_name=player_name)
 
@@ -335,11 +339,10 @@ def main():
 
     if player_input_exit(player_name) == False:
         player_hello_msg = f'\nHello {player_name}'
-        player_output(False, player_hello_msg)
-
         introduction_msg = ('We are going on an adventure. But first, make sure your '
                             f'parents know {player_name}! Remember, never go on adventures with strangers\n')
-        player_output(False, introduction_msg)
+        msg = f'{player_hello_msg}\n{introduction_msg}'
+        player_output(False, msg)
 
     else:
         game_exit()
@@ -347,19 +350,23 @@ def main():
     while health > 0:
 
         current_location_description = current_location.location_description
-        player_output(False, current_location_description)
+        # player_output(False, current_location_description)
         move_message = create_moves_message(
             location=current_location, logger=logger)
-        player_output(False, move_message)
+        # player_output(False, move_message)
         location_message = create_location_items_message(location=current_location,
                                                          items=items, logger=logger)
-        player_output(False, location_message)
+        # player_output(False, location_message)
         user_items_message = create_user_items_message(
             player=player, logger=logger)
-        player_output(False, user_items_message)
+        # player_output(False, user_items_message)
+        msg = f'{current_location_description}\n{move_message}\n{
+            location_message}\n{user_items_message}'
+        player_output(False, msg)
 
+        msg = bold_string(f'\nWhat would you like to do? : ')
         player_instructions = player_input(
-            True, f'\nWhat would you like to do? : ')
+            False, msg)
         if player_input_exit(player_instructions) is False:
 
             action_list_manager = ActionListManager(
@@ -381,20 +388,23 @@ def main():
                 item = None
             action = action_list_manager.get_action_name_by_action_description(
                 action_description=action_description)
-            player_output(False, f"\nYou choose to: {action_description}")
+            msg = f"\nYou choose to: {action_description}"
+            player_output(False, msg)
 
             player_msg, player, current_location, locations, item, items = perform_action(
                 user_action=action_description, action=action, current_location=current_location, locations=locations, items=items, item=item,
                 player=player, logger=logger)
 
-            player_output(True, player_msg)
+            msg = bold_string(player_msg)
+
+            player_output(False, msg)
 
             health = health - 1
         else:
             health = 0
             game_exit()
-
-        player_output(False, f"\nYour health is {health}\n")
+        msg = f"\nYour health is {health}\n"
+        player_output(False, msg)
 
 
 if __name__ == "__main__":
