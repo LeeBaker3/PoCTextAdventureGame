@@ -16,6 +16,9 @@ from typing import List
 import sys
 
 file_path = Path(__file__).parent
+locations = {}
+items = {}
+logger = None
 
 
 def load_game_config() -> tuple[dict, dict]:
@@ -319,10 +322,75 @@ def perform_action(user_action: str, action: str, current_location: Location, lo
         return player_msg, current_location, locations, items, item, player
 
 
-def main():
-    logger = create_logger()
-    logger.info("App started\n.")
+def generate_game_location_message(current_location, logger, items, player):
+    """
+    Generates a message containing the current location description, available moves,
+    location items, and user items.
 
+    Args:
+        current_location (Location): The current location object.
+        logger (Logger): The logger object for logging messages.
+        items (list): The list of items present in the location.
+        player (Player): The player object.
+
+    Returns:
+        str: The generated game location message.
+    """
+    move_message = create_moves_message(
+        location=current_location, logger=logger)
+    # player_output(False, move_message)
+    location_message = create_location_items_message(location=current_location,
+                                                     items=items, logger=logger)
+    # player_output(False, location_message)
+    user_items_message = create_user_items_message(
+        player=player, logger=logger)
+    # player_output(False, user_items_message)
+    msg = f'{current_location.location_description}\n{
+        move_message}\n{location_message}\n{user_items_message}'
+    return msg
+
+
+def process_player_action_input(player_instructions, current_location, player, items, locations, logger):
+    """
+    Process the player's input, determine the chosen action and return 
+    the action description, action name, action message, and item.
+
+    Args:
+        player_instructions (str): The player's input instructions.
+        current_location (str): The current location of the player.
+        player (Player): The player object.
+        items (dict): A dictionary of items in the game.
+        locations (dict): A dictionary of locations in the game.
+        logger (Logger): The logger object for logging game events.
+
+    Returns:
+        tuple: A tuple containing the action description, action name, action message, and item.
+    """
+    action_list_manager = ActionListManager(
+        current_location, player, items, locations, logger)
+    action_list_manager.create_action_reference_list()
+    available_moves = action_list_manager.get_list_of_move_action_descriptions()
+    available_actions = action_list_manager.get_list_of_location_action_descriptions()
+    available_actions.extend(
+        action_list_manager.get_list_of_player_action_descriptions())
+
+    action_description = determine_user_input(
+        available_actions=(available_actions + available_moves),
+        player_input=player_instructions, logger=logger)
+    item_id = action_list_manager.get_item_id_for_action_description(
+        action_description=action_description)
+    if item_id is not None:  # Fix: Added colon after "not"
+        item = items[item_id]
+    else:
+        item = None
+    action = action_list_manager.get_action_name_by_action_description(
+        action_description=action_description)
+    action_msg = f"\nYou choose to: {action_description}"
+
+    return action_description, action, action_msg, item
+
+
+def game() -> None:
     locations, items = load_game_config()
 
     welcome_msg = 'Welcome to your greatest adventure.'
@@ -334,9 +402,6 @@ def main():
 
     player = Player(player_name=player_name)
 
-    current_location = locations['0']
-    health = 10
-
     if player_input_exit(player_name) == False:
         player_hello_msg = f'\nHello {player_name}'
         introduction_msg = ('We are going on an adventure. But first, make sure your '
@@ -347,21 +412,16 @@ def main():
     else:
         game_exit()
 
+    current_location = locations['0']
+    health = 10
+
     while health > 0:
 
         current_location_description = current_location.location_description
-        # player_output(False, current_location_description)
-        move_message = create_moves_message(
-            location=current_location, logger=logger)
-        # player_output(False, move_message)
-        location_message = create_location_items_message(location=current_location,
-                                                         items=items, logger=logger)
-        # player_output(False, location_message)
-        user_items_message = create_user_items_message(
-            player=player, logger=logger)
-        # player_output(False, user_items_message)
-        msg = f'{current_location_description}\n{move_message}\n{
-            location_message}\n{user_items_message}'
+        # player_output(False, current_location_description
+
+        msg = generate_game_location_message(
+            current_location, logger, items, player)
         player_output(False, msg)
 
         msg = bold_string(f'\nWhat would you like to do? : ')
@@ -369,33 +429,15 @@ def main():
             False, msg)
         if player_input_exit(player_instructions) is False:
 
-            action_list_manager = ActionListManager(
-                current_location, player, items, locations, logger)
-            action_list_manager.create_action_reference_list()
-            available_moves = action_list_manager.get_list_of_move_action_descriptions()
-            available_actions = action_list_manager.get_list_of_location_action_descriptions()
-            available_actions.extend(
-                action_list_manager.get_list_of_player_action_descriptions())
-
-            action_description = determine_user_input(
-                available_actions=(available_actions + available_moves),
-                player_input=player_instructions, logger=logger)
-            item_id = action_list_manager.get_item_id_for_action_description(
-                action_description=action_description)
-            if item_id is not None:  # Fix: Added colon after "not"
-                item = items[item_id]
-            else:
-                item = None
-            action = action_list_manager.get_action_name_by_action_description(
-                action_description=action_description)
-            msg = f"\nYou choose to: {action_description}"
-            player_output(False, msg)
+            action_description, action, action_msg, item = process_player_action_input(
+                player_instructions, current_location, player, items, locations, logger)
 
             player_msg, player, current_location, locations, item, items = perform_action(
                 user_action=action_description, action=action, current_location=current_location, locations=locations, items=items, item=item,
                 player=player, logger=logger)
 
-            msg = bold_string(player_msg)
+            player_msg = bold_string(player_msg)
+            msg = f"{action_msg}\n{player_msg}"
 
             player_output(False, msg)
 
@@ -403,8 +445,15 @@ def main():
         else:
             health = 0
             game_exit()
+
         msg = f"\nYour health is {health}\n"
         player_output(False, msg)
+
+
+def main():
+    logger = create_logger()
+    logger.info("App started\n.")
+    game()
 
 
 if __name__ == "__main__":
