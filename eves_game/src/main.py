@@ -391,6 +391,8 @@ def process_player_action_input(player_instructions, current_location, player, i
 
 
 def game() -> None:
+    logger = create_logger()
+    logger.info("App started\n.")
     locations, items = load_game_config()
 
     welcome_msg = 'Welcome to your greatest adventure.'
@@ -451,8 +453,6 @@ def game() -> None:
 
 
 def main():
-    logger = create_logger()
-    logger.info("App started\n.")
     game()
 
 
